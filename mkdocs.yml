@@ -1,0 +1,27 @@
+site_name: NoleneHuman__Capstone
+
+site_url: https://cybersecurity1.com
+
+markdown_extensions:
+  - attr_list
+
+
+extra_css:
+  - stylesheets/extra.css
+
+theme:
+  name: mkdocs
+  nav_style: dark
+nav:
+  - Home: index.md
+  - About: about.md
+  - Security: security.md
+  - Network: networking.md
+  - Application: application.md
+  - Cryptography: cryptography.md
+  - Learnings: lessons.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: www.linkedin.com/in/barelyhuman

@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://cybersecurity1.com/application/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Application - NoleneHuman__Capstone</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <link href="../stylesheets/extra.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="..">NoleneHuman__Capstone</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../about/" class="nav-link">About</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../security/" class="nav-link">Security</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../networking/" class="nav-link">Network</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Application</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../cryptography/" class="nav-link">Cryptography</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../lessons/" class="nav-link">Learnings</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../networking/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../cryptography/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#week-1" class="nav-link">Week 1</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#during-design" class="nav-link">During Design</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#week-2" class="nav-link">Week 2</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p><img src="/pictures/app.png" width=800></p>
+<p><strong>Goal</strong></p>
+<p><strong>The Journey</strong></p>
+<h1 id="week-1">Week 1</h1>
+<h2 id="during-design">During Design</h2>
+<p><strong><em>Security Requirements</em></strong></p>
+<ul>
+<li>User management</li>
+<li>Authentication</li>
+<li>Authorization</li>
+<li>Data confidentiality</li>
+<li>Integrity</li>
+<li>Accountability</li>
+<li>Session management</li>
+<li>Transport security</li>
+<li>Tiered system segregation</li>
+<li>Legislative and standards compliance (including privacy, government, and industry standards)</li>
+</ul>
+<p><strong> Step 1 : Basic Login and possible vulnerabilities </strong></p>
+<p>Is started out with a standard login page and listed the common vulnerabilities.</p>
+<p><img alt="Step 1" src="../image-4.png" /></p>
+<p><strong> Step 2 : Improved vulnerabilities through design </strong></p>
+<p>Next, I looked at the vulnerabilities that can be reduced through design.</p>
+<ul>
+<li>I removed any text and hints that can indicate to an hacker the possible solution</li>
+<li>I added additional steps <br />
+<img alt="Step 2" src="../image-5.png" /></li>
+</ul>
+<p><strong><em>References</em></strong></p>
+<p><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/03-Identity_Management_Testing/README">Testing for Account Enumeration and Guessable User Account</a></p>
+<p><a href="https://www.strongdm.com/blog/authentication-vulnerabilities">11 Common Authentication Vulnerabilities You Need to Know</a></p>
+<h1 id="week-2">Week 2</h1>
+<ul>
+<li>
+<p><strong>categories of vulnerabilities</strong></p>
+<ul>
+<li><strong>CVEs and CWEs</strong></li>
+<li>
+<p><strong>memory management vulnerabilities</strong></p>
+<p>attacks</p>
+<p>code corruption attacks</p>
+<p>control-fow hijack attacks</p>
+<p>information leak attack</p>
+<p>data-only-attacks</p>
+<p>safe languages</p>
+<p>temporal vulnerabilities</p>
+<p>spatial vulnerabilities</p>
+</li>
+<li>
+<p>structured output generation vulnerabilities</p>
+<p>SQL injection</p>
+<p>command injection vulnerabilities</p>
+<p>script injection vulnerabilities (XSS)</p>
+<p>stored injection vulnerabilites</p>
+<p>higher-order injection vulnerabilities</p>
+</li>
+<li>
+<p><strong>race condition vulnerabilities</strong></p>
+<p>concurrency bugs</p>
+<p>time-of-check to time-of-use</p>
+</li>
+<li>
+<p><strong>API vulnerabilities</strong></p>
+<p>correct use</p>
+<p>correct implementation</p>
+</li>
+<li>
+<p><strong>side-channel vulnerabilities</strong></p>
+<p>software-based side-channels</p>
+<p>covert channels</p>
+<p>micro-architectual effects</p>
+<p>fault-injection attacks</p>
+<p>physical fault-injection</p>
+<p>software fault-injection</p>
+<p>Rowhammer</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>prevention of vulnerabilities</strong></p>
+<ul>
+<li>
+<p><strong>API design</strong></p>
+<p>defensive programming</p>
+<p>sandboxing</p>
+<p>principle of least privilege</p>
+<p>assertions</p>
+<p>contracts</p>
+</li>
+<li>
+<p><strong>coding practices</strong></p>
+<p>coding guidelines</p>
+<p>MISRA</p>
+<p>dangerous functions</p>
+<p>programming idioms</p>
+<p>resource acquisition is initialisation</p>
+<p>move semantics</p>
+<p>smart pointers</p>
+<p>checking compliance</p>
+</li>
+<li>
+<p><strong>erroneous execution</strong></p>
+<p>trapped errors</p>
+<p>untrapped errors</p>
+</li>
+<li>
+<p><strong>language design and type systems</strong></p>
+<p>memory management mitigations</p>
+<p>immutable state</p>
+<p>dynamic checks</p>
+<p>static checks</p>
+</li>
+<li>
+<p><strong>structured output generations mitigations</strong></p>
+<p>type systems</p>
+<p>query generation</p>
+</li>
+<li>
+<p><strong>race condition mitigation</strong></p>
+<p>ownership</p>
+<p>aliasing</p>
+</li>
+<li>
+<p><strong>information flow</strong></p>
+</li>
+<li><strong>mitigating exploitation</strong></li>
+<li>
+<p><strong>runtime detection of attacks</strong></p>
+<p>stack canaries
+non-executable memory</p>
+<p>control fow integrity</p>
+</li>
+<li>
+<p><strong>automated software diversity</strong></p>
+<p>ASLR</p>
+</li>
+<li>
+<p><strong>limiting privileges</strong></p>
+<ul>
+<li>
+<p><strong>sandboxing</strong></p>
+<p>monitors</p>
+<p>jails</p>
+</li>
+</ul>
+<p>compartmentalisation</p>
+<p>object-capability systems</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>detection of vulnerabilities</strong></p>
+</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
