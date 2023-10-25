@@ -88,37 +88,22 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#week-1" class="nav-link">Week 1</a>
+            <li class="nav-item" data-level="2"><a href="#step-1-install-linux-ubuntu" class="nav-link">Step 1: Install Linux Ubuntu</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#linux" class="nav-link">Linux</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#webserver" class="nav-link">Webserver</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
               </ul>
             </li>
             
-            <li class="nav-item" data-level="1"><a href="#week-2" class="nav-link">Week 2</a>
+            <li class="nav-item" data-level="2"><a href="#step-2-install-webserver" class="nav-link">Step 2: Install Webserver</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#cybok" class="nav-link">CyBOK</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#linux_1" class="nav-link">Linux</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#webserver_1" class="nav-link">Webserver</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
               </ul>
             </li>
             
-            <li class="nav-item" data-level="1"><a href="#week-3" class="nav-link">Week 3</a>
+            <li class="nav-item" data-level="2"><a href="#step-3-port-forwarding" class="nav-link">Step 3: Port Forwarding</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#step-4-improve-security" class="nav-link">Step 4: Improve Security</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -129,39 +114,86 @@
 
 <p><img src="/pictures/netw.png" width=800></p>
 <p><strong>Goal</strong></p>
-<p>Secure Home network add webserver and finally, securely host my application following the Zero Trust model. I used this section to enchance my skills in Linux, get a bettter understanding on servers and network trafficking.</p>
-<p>All steps/actions below was executed through self study and my first time doing any of them. The reason was that this is not part of my course curriculum but noticed that these are essential skills I need to master to be able to get into DevSecOps and Cybersecurity.  </p>
+<p>In this assignment, my goal was to look at ways on how individuals can improve their SOHO network security.  </p>
+<p>I followed the Zero Trust model, deepened my understanding of the CyBOK Network Security principles through building a webserver and hosting my application on-prem.  🦹</p>
+<p>This allowed me to have a playground to test various case studies of a home business requirements.</p>
 <p><strong>The Journey</strong></p>
-<h1 id="week-1">Week 1</h1>
-<h2 id="linux">Linux</h2>
+<h2 id="step-1-install-linux-ubuntu">Step 1: Install Linux Ubuntu</h2>
 <ul>
-<li>Hardware setup and Troubleshooting<ul>
-<li>DualBoot Windows with Ubuntu<ul>
-<li>💢 Windows di dnot allow dualboot (linux or windows) until Bitlocker Key was entered. Did not have this key. <a href="https://www.youtube.com/watch?v=lY0Iz0NpAoU">Found the solution thanks to Tricknology</a></li>
-</ul>
+<li>Dual Boot Windows machine with Linux Ubuntu</li>
+<li>
+<p>Hardware setup and Troubleshooting
+    <br>💢 Windows initially did not allow dual-boot (or reboot Windows) until I entered the Bitlocker Key that I did not have. 
+    <br>💪 The solution was to enable SECURE BOOT again and run the following CLI command to find the key on the laptop.
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>    manage-bde -protectors &lt;the drive usually c&gt;: -get
+</span></code></pre></div>
+    Finding the solution took a few videos, but I finally got Bitlocker fully disabled. It is worth noting that Bitlocker is Windows additional data encryption security feature and disabling this opens up the machine to attacks. However, as demonstrated by Andy Malone MVP in <a href="https://www.youtube.com/watch?v=2KZRJRDh8Ws&amp;t=365s">How to HACK Windows Bitlocker - MUST SEE!</a>, it is not hard to find this key and the convenience of having it off is currently exceeding the security benefit. <br></p>
+<p><strong>Resources</strong>
+<br> <a href="hhttps://www.youtube.com/watch?v=FVqKy3oBDQc">How to Disable Bitlocker Encryption in Windows 11</a>
+<br> <a href="https://www.youtube.com/watch?v=2mFeoiExeX0">Find Your BitLocker Recovery Key</a></p>
 </li>
 </ul>
-</li>
-</ul>
-<h2 id="webserver">Webserver</h2>
+<h2 id="step-2-install-webserver">Step 2: Install Webserver</h2>
 <ul>
-<li>Installing and maintaining web server hardware and software <strong>NGINX</strong> + <strong>Gunicorn</strong></li>
-<li>Troubleshooting network and server failures and resolving issues</li>
+<li>I instaled <strong>NGINX</strong>, instead of the other option Apache, as the researched showed Nginx to be more secure.</li>
 </ul>
-<p>/Optimizing server networks and web application firewall configuration
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Tool</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Flask</td>
+<td style="text-align: left;">Web Application Framework</td>
+</tr>
+<tr>
+<td style="text-align: left;">SQLite3</td>
+<td style="text-align: left;">Database</td>
+</tr>
+<tr>
+<td style="text-align: left;">Gunicorn</td>
+<td style="text-align: left;">Web Server Gateway Interface</td>
+</tr>
+<tr>
+<td style="text-align: left;">Nginx</td>
+<td style="text-align: left;">Proxy Server</td>
+</tr>
+<tr>
+<td style="text-align: left;">Cloudflare</td>
+<td style="text-align: left;">DNS</td>
+</tr>
+</tbody>
+</table>
+<h2 id="step-3-port-forwarding">Step 3: Port Forwarding</h2>
+<p><img alt="Server" src="../image.png" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Tool</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Cloudflare</td>
+<td style="text-align: left;">Tunnel</td>
+</tr>
+</tbody>
+</table>
+<h2 id="step-4-improve-security">Step 4: Improve Security</h2>
+<p><strong>Security Goals</strong>
+Identify common vulnerabilites of a SOHO Network and ways to prevent them. </p>
+<p><img alt="Scanned Network" src="../image-7.png" />
+<strong>LAN Architecture</strong></p>
+<p><BR>
+/Optimizing server networks and web application firewall configuration
 /Reviewing and performance-testing existing server systems and web products
 /Hardening networks, hosts, web servers and applications
 /Implementing web server controls and active defense mechanisms
 /Using command-line utilities to test web servers and extract logs</p>
-<h1 id="week-2">Week 2</h1>
-<h2 id="cybok">CyBOK</h2>
-<p><strong>Security Goals in Networked Systems</strong></p>
-<pre><code>Security Goals and Attacker Models
-</code></pre>
-<p>Attacker Models (add Original)
-<img alt="Network" src="../image.png" /></p>
-<p>Python &lt;-&gt; Flask &lt;-&gt; Gunicorn &lt;-&gt; Nginx &lt;=&gt; Cloudflare</p>
-<h2 id="linux_1">Linux</h2>
 <p>/User account management
 /Structured Query Language (SQL)
 /Network traffic packet capture
@@ -170,16 +202,11 @@
 /Hardware setup and troubleshooting
 /Network routers and firewalls
 /Network switches</p>
-<h2 id="webserver_1">Webserver</h2>
 <p>/Optimizing server networks and web application firewall configuration
 /Reviewing and performance-testing existing server systems and web products
 /Hardening networks, hosts, web servers and applications
 /Implementing web server controls and active defense mechanisms
 /Using command-line utilities to test web servers and extract logs</p>
-<h3 id="tools">Tools</h3>
-<p>Stack:</p>
-<pre><code>App         Web Server Gateway Interface        Proxy Server    DNS and &lt;Tunnel&gt;
-</code></pre>
 <ul>
 <li>Firewalls</li>
 <li>Scripting and programming laguages</li>
@@ -188,21 +215,8 @@
 </ul>
 <p>Website hosting
 DNS Services</p>
-<h1 id="week-3">Week 3</h1>
-<p><strong>Week 2</strong></p>
-<ul>
-<li>
-<p>Build Server on Linux Machine</p>
-</li>
-<li>
-<p>Host Flask application using Gunicorn &amp; WSGI</p>
-</li>
-<li>
-<p>Connect Website using Cloudflare DNS and Tunnel Service</p>
-</li>
-</ul>
 <p><strong>Networking Applications</strong></p>
-<pre><code>Local Area Networks (LANs)
+<div class="language-text highlight"><pre><span></span><code>Local Area Networks (LANs)
 
 Connected Networks and the Internet
 
@@ -213,7 +227,7 @@ Bus Networks
 Fully Distributed Networks: DHTs and Unstructured P2P Networks
 
 Software-Defned Networking and Network Function Virtualisation
-</code></pre>
+</code></pre></div>
 <ul>
 <li>
 <p><strong>Network Protocols and Their Security</strong></p>
