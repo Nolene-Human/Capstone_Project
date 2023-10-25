@@ -35,9 +35,6 @@
                                 <a href=".." class="nav-link">Home</a>
                             </li>
                             <li class="navitem">
-                                <a href="../about/" class="nav-link">About</a>
-                            </li>
-                            <li class="navitem">
                                 <a href="../security/" class="nav-link">Security</a>
                             </li>
                             <li class="navitem active">
@@ -116,7 +113,14 @@
 <p><strong>Goal</strong></p>
 <p>In this assignment, my goal was to look at ways on how individuals can improve their SOHO network security.  </p>
 <p>I followed the Zero Trust model, deepened my understanding of the CyBOK Network Security principles through building a webserver and hosting my application on-prem.  🦹</p>
-<p>This allowed me to have a playground to test various case studies of a home business requirements.</p>
+<p>This allowed me create a sandbox to test various case studies of a home business requirements.</p>
+<p>Application Layer Threats: Distributed denial-of-service attacks (DDoS) attacks, HTTP floods, SQL injections, cross-site scripting, parameter tampering, and Slowloris attacks,
+Presentation Layer Threats: Phishing attacks,
+Session Layer Threats: Hijacking attacks,
+Transport Layer Threats: Reconnaissance and DoS attacks,
+Network Layer Threats: Man-in-the-middle attacks,
+Data-Link Layer Threats: Spoofing attacks,
+Physical Layer Threats: Sniffing attacks.</p>
 <p><strong>The Journey</strong></p>
 <h2 id="step-1-install-linux-ubuntu">Step 1: Install Linux Ubuntu</h2>
 <ul>
@@ -184,10 +188,87 @@
 </tbody>
 </table>
 <h2 id="step-4-improve-security">Step 4: Improve Security</h2>
-<p><strong>Security Goals</strong>
+<p><strong> Security Goals </strong>
 Identify common vulnerabilites of a SOHO Network and ways to prevent them. </p>
 <p><img alt="Scanned Network" src="../image-7.png" />
-<strong>LAN Architecture</strong></p>
+<strong> LAN Architecture </strong></p>
+<p><strong> Attacker Models </strong></p>
+<p><img alt="Alt text" src="../image-8.png" /></p>
+<h3 id="stride"><a href="https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats">STRIDE</a></h3>
+<p>Spoofing<br>
+Tampering <br>
+Repudiation <br>
+Information disclosure (privacy breach or data leak) <br>
+Denial of service <br>
+Elevation of privilege <br></p>
+<h3 id="mitre-attck"><a href="https://attack.mitre.org/tactics/TA0043/">MITRE ATT&amp;CK</a></h3>
+<p><br></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Reconnaissance</td>
+<td style="text-align: left;">The adversary is trying to gather information they can use to plan future operations.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Resource Development</td>
+<td style="text-align: left;">The adversary is trying to establish resources they can use to support operations.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Initial Access</td>
+<td style="text-align: left;">The adversary is trying to get into your network.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Execution</td>
+<td style="text-align: left;">The adversary is trying to run malicious code.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Persistence</td>
+<td style="text-align: left;">The adversary is trying to maintain their foothold.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Privilege Escalation</td>
+<td style="text-align: left;">The adversary is trying to gain higher-level permissions.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Defense Evasion</td>
+<td style="text-align: left;">The adversary is trying to avoid being detected.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Credential Access</td>
+<td style="text-align: left;">The adversary is trying to steal account names and passwords.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Discovery</td>
+<td style="text-align: left;">The adversary is trying to figure out your environment.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lateral Movement</td>
+<td style="text-align: left;">The adversary is trying to move through your environment.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Collection</td>
+<td style="text-align: left;">The adversary is trying to gather data of interest to their goal.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Command and Control</td>
+<td style="text-align: left;">The adversary is trying to communicate with compromised systems to control them.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Exfiltration</td>
+<td style="text-align: left;">The adversary is trying to steal data.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Impact</td>
+<td style="text-align: left;">The adversary is trying to manipulate, interrupt, or destroy your systems and data.</td>
+</tr>
+</tbody>
+</table>
 <p><BR>
 /Optimizing server networks and web application firewall configuration
 /Reviewing and performance-testing existing server systems and web products
