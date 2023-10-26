@@ -85,12 +85,17 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
+            <li class="nav-item" data-level="2"><a href="#before-development-begins" class="nav-link">Before Development Begins</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
             <li class="nav-item" data-level="2"><a href="#during-design" class="nav-link">During Design</a>
               <ul class="nav flex-column">
               </ul>
             </li>
             
-            <li class="nav-item" data-level="1"><a href="#week-2" class="nav-link">Week 2</a>
+            <li class="nav-item" data-level="2"><a href="#during-development" class="nav-link">During Development</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -101,7 +106,68 @@
 
 <p><img alt="Scanned Network" src="../app.png" /></p>
 <p><strong>Goal</strong></p>
+<p>The goal is to imporve my application security and reduce the risk of attacks by testing the application througout the Software Development Life Cycle.
+This document is recording the 'the test early and test often' methodology applied threat modeling, automated testing (Snyk), code review and pentesting techniques.  </p>
 <p><strong>The Journey</strong></p>
+<h2 id="before-development-begins">Before Development Begins</h2>
+<p>I created a threat model on login function of my application should it just follow the basic functions in a generic login form.
+The results identified an extensive list of threats that can be avoided during built.</p>
+<p><strong> Threat Model </strong></p>
+<p>Login Threat Model
+<img alt="Login Threat Model" src="../image-9.png" /></p>
+<p><strong> Result </strong></p>
+<p><img alt="Interaction: Call" src="../image-10.png" /></p>
+<p><strong><em> Interaction: Call </em></strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Threat</th>
+<th style="text-align: left;">Category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Potential Excessive Resource Consumption for Web Application or login</td>
+<td style="text-align: left;">Denial Of Service</td>
+</tr>
+<tr>
+<td style="text-align: left;">Weak Credential Storage</td>
+<td style="text-align: left;">Information Disclosure</td>
+</tr>
+<tr>
+<td style="text-align: left;">Potential Weak Protections for Audit Data</td>
+<td style="text-align: left;">Repudiation</td>
+</tr>
+<tr>
+<td style="text-align: left;">Insufficient Auditing</td>
+<td style="text-align: left;">Repudiation</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lower Trusted Subject Updates Logs</td>
+<td style="text-align: left;">Repudiation</td>
+</tr>
+<tr>
+<td style="text-align: left;">Data Logs from an Unknown Source</td>
+<td style="text-align: left;">Repudiation</td>
+</tr>
+<tr>
+<td style="text-align: left;">Risks from Logging</td>
+<td style="text-align: left;">Tampering</td>
+</tr>
+<tr>
+<td style="text-align: left;">Spoofing of Destination Data Store login</td>
+<td style="text-align: left;">Spoofing</td>
+</tr>
+<tr>
+<td style="text-align: left;">Data Logs from an Unknown Source</td>
+<td style="text-align: left;">Repudiation</td>
+</tr>
+<tr>
+<td style="text-align: left;">Data Logs from an Unknown Source</td>
+<td style="text-align: left;">Repudiation</td>
+</tr>
+</tbody>
+</table>
 <h2 id="during-design">During Design</h2>
 <p><strong><em>Security Requirements</em></strong></p>
 <ul>
@@ -121,6 +187,7 @@
 <p>Is started out with a standard login page and listed the common vulnerabilities.</p>
 <p><img alt="Step 1" src="../image-4.png" /></p>
 <p><strong> Step 2 : Improved vulnerabilities through design </strong></p>
+<h2 id="during-development">During Development</h2>
 <p>Next, I looked at the vulnerabilities that can be reduced through design.</p>
 <ul>
 <li>I removed any text and hints that can indicate to an hacker the possible solution</li>
@@ -130,7 +197,6 @@
 <p><strong><em>References</em></strong></p>
 <p><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/03-Identity_Management_Testing/README">Testing for Account Enumeration and Guessable User Account</a></p>
 <p><a href="https://www.strongdm.com/blog/authentication-vulnerabilities">11 Common Authentication Vulnerabilities You Need to Know</a></p>
-<h1 id="week-2">Week 2</h1>
 <ul>
 <li>
 <p><strong>categories of vulnerabilities</strong></p>
