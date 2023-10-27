@@ -35,7 +35,7 @@
                                 <a href=".." class="nav-link">Home</a>
                             </li>
                             <li class="navitem">
-                                <a href="../security/" class="nav-link">Security</a>
+                                <a href="../security/" class="nav-link">Scope</a>
                             </li>
                             <li class="navitem">
                                 <a href="../networking/" class="nav-link">Network</a>
@@ -110,12 +110,12 @@
 This document is recording the 'the test early and test often' methodology applied threat modeling, automated testing (Snyk), code review and pentesting techniques.  </p>
 <p><strong>The Journey</strong></p>
 <h2 id="before-development-begins">Before Development Begins</h2>
-<p>I created a threat model on login function of my application should it just follow the basic functions in a generic login form.
-The results identified an extensive list of threats that can be avoided during built.</p>
+<p>I created a threat model using Microsoft Thread Modeling Tool to identify the possible threats on a basic login function using a typical login form.
+The results identified an extensive list of threats that can be avoided during built and the basis of the metrics criteria.</p>
 <p><strong> Threat Model </strong></p>
 <p>Login Threat Model
 <img alt="Login Threat Model" src="../image-9.png" /></p>
-<p><strong> Result </strong></p>
+<p><strong> Measurement and Metrics Criteria and Ensure Traceability </strong></p>
 <p><img alt="Interaction: Call" src="../image-10.png" /></p>
 <p><strong><em> Interaction: Call </em></strong></p>
 <table>
@@ -165,6 +165,46 @@ The results identified an extensive list of threats that can be avoided during b
 <tr>
 <td style="text-align: left;">Data Logs from an Unknown Source</td>
 <td style="text-align: left;">Repudiation</td>
+</tr>
+</tbody>
+</table>
+<p><strong><em> Interaction: Login </em></strong></p>
+<p><img alt="Login" src="../image-12.png" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Threat</th>
+<th style="text-align: left;">Category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Potential Excessive Resource Consumption for Web Application or check login credentials</td>
+<td style="text-align: left;">Denial Of Service</td>
+</tr>
+<tr>
+<td style="text-align: left;">Spoofing of Destination Data Store check login credentials</td>
+<td style="text-align: left;">Spoofing</td>
+</tr>
+</tbody>
+</table>
+<p><strong><em> Interaction: Check Login Credentials </em></strong></p>
+<p><img alt="Check Login" src="../image-11.png" /></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Threat</th>
+<th style="text-align: left;">Category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Spoofing of Destination Data Store SQL Database</td>
+<td style="text-align: left;">Spoofing</td>
+</tr>
+<tr>
+<td style="text-align: left;">Spoofing of Source Data Store check login credentials</td>
+<td style="text-align: left;">Spoofing</td>
 </tr>
 </tbody>
 </table>

@@ -35,7 +35,7 @@
                                 <a href=".." class="nav-link">Home</a>
                             </li>
                             <li class="navitem">
-                                <a href="../security/" class="nav-link">Security</a>
+                                <a href="../security/" class="nav-link">Scope</a>
                             </li>
                             <li class="navitem active">
                                 <a href="./" class="nav-link">Network</a>
@@ -139,7 +139,37 @@ Physical Layer Threats: Sniffing attacks.</p>
 </ul>
 <h2 id="step-2-install-webserver">Step 2: Install Webserver</h2>
 <ul>
-<li>I instaled <strong>NGINX</strong>, instead of the other option Apache, as the researched showed Nginx to be more secure.</li>
+<li>
+<p>This projec is using <a href="https://www.nginx.com/">NGINX</a> over Apache because it is more resouce-effecient with higher performance and more secure. However Nginx cannot process dynamic content like Apache. Because the application hosted on this server is written using Flask Gunicorn had to be included into the stack.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>sudo apt install nginx
+</span></code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo systemctl start nginx
+</span></code></pre></div>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Default</th>
+<th style="text-align: left;">FANG.html</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><img alt="Server up" src="../image-13.png" /></td>
+<td style="text-align: left;"><img alt="fang" src="../image-14.png" /></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>
+<p>Installing Gunicorn a Web Service Gateway Interface, this will act as my 'translater' between application and webserver.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>pip install gunicorn flask
+</span></code></pre></div>
+</li>
+<li>
+<p>Create simple 'Hello from Fang" flask application and save in var </p>
+</li>
 </ul>
 <table>
 <thead>
@@ -171,6 +201,8 @@ Physical Layer Threats: Sniffing attacks.</p>
 </tr>
 </tbody>
 </table>
+<p><br><br></p>
+<hr />
 <h2 id="step-3-port-forwarding">Step 3: Port Forwarding</h2>
 <p><img alt="Server" src="../image.png" /></p>
 <table>
