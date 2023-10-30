@@ -47,7 +47,7 @@
                                 <a href="./" class="nav-link">Cryptography</a>
                             </li>
                             <li class="navitem">
-                                <a href="../lessons/" class="nav-link">Learnings</a>
+                                <a href="../database/" class="nav-link">Database</a>
                             </li>
                         </ul>
 
@@ -63,7 +63,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../lessons/" class="nav-link">
+                                <a rel="next" href="../database/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -87,7 +87,7 @@
             
             <li class="nav-item" data-level="1"><a href="#cybok-knowledge-applied" class="nav-link">CyBOK knowledge applied</a>
               <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#data-encryption-mechanisms-tls-transport-layer-security-data-in-transit" class="nav-link">Data Encryption Mechanisms / TLS (Transport Layer Security) / Data In Transit</a>
+            <li class="nav-item" data-level="2"><a href="#data-encryption-mechanisms-tls-transport-layer-security-data-at-rest" class="nav-link">Data Encryption Mechanisms / TLS (Transport Layer Security) / Data At Rest</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -99,13 +99,21 @@
                     <div class="col-md-9" role="main">
 
 <p><img alt="Scanned Network" src="../cry.png" /></p>
-<h1 id="cybok-knowledge-applied">CyBOK knowledge applied</h1>
-<p><strong>Goal</strong></p>
+<h3 style="color:rgb(167, 22, 102)">Goal</h3>
+
 <p>The goal is to understand and implement relevant CyBOK topics in my application as possible. Here the reader can follow my learnings and reason for applying certain cryptography methods.  </p>
-<p><strong>The Journey</strong></p>
+<h3 style="color:rgb(167, 22, 102)">The Journey</h3>
+
+<p>Outcome based on threat modeling</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Store user credentials securely using hashing and salting techniques.(instead of plain text).</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Hash the provided password in the same way as the stored hash, if they match, the password is correct.</li>
+</ul>
 <hr />
+<h1 id="cybok-knowledge-applied">CyBOK knowledge applied</h1>
 <p><strong> Schemes </strong></p>
-<h2 id="data-encryption-mechanisms-tls-transport-layer-security-data-in-transit">Data Encryption Mechanisms / TLS (Transport Layer Security) / Data In Transit</h2>
+<p>💪</p>
+<h3 id="data-encryption-mechanisms-tls-transport-layer-security-data-in-transit">Data Encryption Mechanisms / TLS (Transport Layer Security) / Data In Transit</h3>
 <p>An admin application is using python and gmail to send a response to clients enquiry. </p>
 <p><img alt="Alt text" src="../image-20.png" /></p>
 <h3 id="before">Before</h3>
@@ -180,8 +188,10 @@
 </span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>#console log
 </span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>print(&#39;email sent&#39;)
 </span></code></pre></div>
-<p><img alt="Alt text" src="../image-22.png" /></p>
+<p><img alt="Alt text" src="../image-24.png" /></p>
 <p><br></p>
+<h2 id="data-encryption-mechanisms-tls-transport-layer-security-data-at-rest">Data Encryption Mechanisms / TLS (Transport Layer Security) / Data At Rest</h2>
+<p>Database</p>
 <hr />
 <hr />
 <p><strong><em>Full Cybok list of knowledge</em></strong></p>

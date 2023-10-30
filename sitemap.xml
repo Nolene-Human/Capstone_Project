@@ -2,37 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://cybersecurity1.com/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-10-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cybersecurity1.com/application/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-10-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cybersecurity1.com/cryptography/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-10-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://cybersecurity1.com/discoveries/</loc>
-         <lastmod>2023-10-29</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://cybersecurity1.com/lessons/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <loc>https://cybersecurity1.com/database/</loc>
+         <lastmod>2023-10-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cybersecurity1.com/networking/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-10-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://cybersecurity1.com/security/</loc>
-         <lastmod>2023-10-29</lastmod>
+         <lastmod>2023-10-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

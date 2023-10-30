@@ -47,7 +47,7 @@
                                 <a href="../cryptography/" class="nav-link">Cryptography</a>
                             </li>
                             <li class="navitem">
-                                <a href="../lessons/" class="nav-link">Learnings</a>
+                                <a href="../database/" class="nav-link">Database</a>
                             </li>
                         </ul>
 
@@ -110,109 +110,81 @@
                     <div class="col-md-9" role="main">
 
 <p><img alt="Scanned Network" src="../app.png" /></p>
-<p><strong>Goal</strong></p>
+<h3 style="color:rgb(167, 22, 102)">Goal</h3>
+
 <p>The goal is to imporve my application security and reduce the risk of attacks by testing the application througout the Software Development Life Cycle.
 This document is recording the 'the test early and test often' methodology applied threat modeling, automated testing (Snyk), code review and pentesting techniques.  </p>
-<p><strong>The Journey</strong></p>
+<h3 style="color:rgb(167, 22, 102)">The Journey</h3>
+
 <h2 id="before-development-begins">Before Development Begins</h2>
 <p>I created a threat model using Microsoft Thread Modeling Tool to identify the possible threats on a basic login function using a typical login form.
 The results identified an extensive list of threats that can be avoided during built and the basis of the metrics criteria.</p>
 <p><strong> Threat Model </strong></p>
-<p>Login Threat Model
+<p>The standard Login Threat Model based on original design
 <img alt="Login Threat Model" src="../image-9.png" /></p>
 <p><strong> Measurement and Metrics Criteria and Ensure Traceability </strong></p>
-<p><img alt="Interaction: Call" src="../image-10.png" /></p>
-<p><strong><em> Interaction: Call </em></strong></p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Threat</th>
-<th style="text-align: left;">Category</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Potential Excessive Resource Consumption for Web Application or login</td>
-<td style="text-align: left;">Denial Of Service</td>
-</tr>
-<tr>
-<td style="text-align: left;">Weak Credential Storage</td>
-<td style="text-align: left;">Information Disclosure</td>
-</tr>
-<tr>
-<td style="text-align: left;">Potential Weak Protections for Audit Data</td>
-<td style="text-align: left;">Repudiation</td>
-</tr>
-<tr>
-<td style="text-align: left;">Insufficient Auditing</td>
-<td style="text-align: left;">Repudiation</td>
-</tr>
-<tr>
-<td style="text-align: left;">Lower Trusted Subject Updates Logs</td>
-<td style="text-align: left;">Repudiation</td>
-</tr>
-<tr>
-<td style="text-align: left;">Data Logs from an Unknown Source</td>
-<td style="text-align: left;">Repudiation</td>
-</tr>
-<tr>
-<td style="text-align: left;">Risks from Logging</td>
-<td style="text-align: left;">Tampering</td>
-</tr>
-<tr>
-<td style="text-align: left;">Spoofing of Destination Data Store login</td>
-<td style="text-align: left;">Spoofing</td>
-</tr>
-<tr>
-<td style="text-align: left;">Data Logs from an Unknown Source</td>
-<td style="text-align: left;">Repudiation</td>
-</tr>
-<tr>
-<td style="text-align: left;">Data Logs from an Unknown Source</td>
-<td style="text-align: left;">Repudiation</td>
-</tr>
-</tbody>
-</table>
-<p><strong><em> Interaction: Login </em></strong></p>
-<p><img alt="Login" src="../image-12.png" /></p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Threat</th>
-<th style="text-align: left;">Category</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Potential Excessive Resource Consumption for Web Application or check login credentials</td>
-<td style="text-align: left;">Denial Of Service</td>
-</tr>
-<tr>
-<td style="text-align: left;">Spoofing of Destination Data Store check login credentials</td>
-<td style="text-align: left;">Spoofing</td>
-</tr>
-</tbody>
-</table>
-<p><strong><em> Interaction: Check Login Credentials </em></strong></p>
-<p><img alt="Check Login" src="../image-11.png" /></p>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">Threat</th>
-<th style="text-align: left;">Category</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Spoofing of Destination Data Store SQL Database</td>
-<td style="text-align: left;">Spoofing</td>
-</tr>
-<tr>
-<td style="text-align: left;">Spoofing of Source Data Store check login credentials</td>
-<td style="text-align: left;">Spoofing</td>
-</tr>
-</tbody>
-</table>
+<p>Denial Of Service</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Potential Excessive Resource Consumption for Web Application or check login credentials </p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Use Multi-Factor Authentication (MFA)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Limit Login Attempts <br><br>
+Other</li>
+<li>Credential Storage : Store user credentials securely using hashing and salting techniques <a href="/cryptography">see cryptography</a><br></li>
+<li>Credential Verification : hash the provided password in the same way as the stored hash, and compare the two. If they match, the password is correct.<a href="/cryptography">see cryptography</a><br></li>
+<li>Secure Transmission : Always transmit credentials securely using encryption protocols like HTTPS.<a href="/networking">see network</a><br></li>
+<li>Implement input validation : Define and enforce maximum size limits for all incoming parameters and payloads<a href="/networking">see network</a><br></li>
+<li>Use load balancing : Distribute traffic across multiple servers<a href="/networking">see network</a><br></li>
+<li>Implement server-side caching : This can reduce the number of requests to the server<a href="/networking">see network</a><br></li>
+<li>Monitor and log server activity : This can help detect and respond to unusual resource consumption<a href="/networking">see network</a><br>
+<br></li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Data Flow HTTPS Is Potentially Interrupted</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Implement a Web Application Firewall (WAF)<a href="/networking">see network</a><br><br> </li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Potential Process Crash or Stop for Web Application <p style="color:rgb(167, 22, 102)"> outside of scope<p></li>
+</ul>
+<p><br>
+Elevation of Privilege</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Cross Site Request Forgery </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Elevation by Changing the Execution Flow in Web Application </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Web Application May be Subject to Elevation of Privilege Using Remote Code Execution </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Elevation Using Impersonation</li>
+</ul>
+<p>Information Disclosure</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Weak Credential Storage</li>
+</ul>
+<p>Repudiation</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Potential Weak Protections for Audit Data </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Insufficient Auditing </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Lower Trusted Subject Updates Logs</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Data Logs from an Unknown Source </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Potential Data Repudiation by Web Application</li>
+</ul>
+<p>Tampering</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Risks from Logging </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Cross Site Scripting</li>
+</ul>
+<p>Spoofing</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing of Destination Data Store login</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing the Browser External Entity</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing of Destination Data Store SQL Database <a href="/database">see database</a></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing of Source Data Store check login credentials <a href="/database">see database</a></li>
+</ul>
+<p><strong> Authentication </strong>: Use standard authentication mechanisms to verify the identity of the source data store. This could involve using secure protocols such as HTTPS which provide built-in authentication.</p>
+<p><strong> Input Validation </strong>: Ensure that all inputs are validated and sanitized to prevent malicious inputs from being processed.</p>
+<p><strong> Least Privilege Access </strong>: Implement least privilege access controls so that even if an attacker is able to spoof a source, they would not have sufficient privileges to perform harmful actions</p>
+<p><strong> Monitoring and Logging</strong> : Regularly monitor and log activities to detect any unusual behavior or access patterns</p>
 <h2 id="during-design">During Design</h2>
 <p><strong><em>Security Requirements</em></strong></p>
 <ul>
@@ -224,8 +196,7 @@ The results identified an extensive list of threats that can be avoided during b
 <li>Accountability</li>
 <li>Session management</li>
 <li>Transport security</li>
-<li>Tiered system segregation</li>
-<li>Legislative and standards compliance (including privacy, government, and industry standards)</li>
+<li>Tiered system segregation </li>
 </ul>
 <p><strong> Step 1 : Basic Login and possible vulnerabilities </strong></p>
 <p>Is started out with a standard login page and listed the common vulnerabilities.</p>
@@ -234,16 +205,23 @@ The results identified an extensive list of threats that can be avoided during b
 <p>Redesigned the login page to remove design vulnerabilities:</p>
 <p><img alt="Alt text" src="../image-18.png" /></p>
 <h2 id="during-development">During Development</h2>
-<p>Start developing with the design concept combined with the practical aproach.</p>
-<p>There are two applications.
-a) General contact page fang.render.com
-b) Website for services fang.onlyforshowhacks.com</p>
-<p>With further investigated looking on how additional security can be added.</p>
+<p>💢 <strong> The line between security and convenience </strong></p>
+<p>The first hurdle is to reduce the risks wihtout building an annoying user experience.</p>
+<p>During the development phase the design concept was combined with the practical aproach with questions like:</p>
+<ul>
+<li>Remove the risk of a weak password with a unique passphrase (token) emailed to user,</li>
+<li>Enforce One Time Passcode,</li>
+<li>Implement captcha,</li>
+<li>all of the above</li>
+</ul>
+<p><br></p>
 <p><img alt="Alt text" src="../image-19.png" /></p>
 <p>Secure: Flask provides built-in support for handling common web security features like cross-site request forgery (CSRF) protection and secure cookie handling.</p>
 <p><strong><em>References</em></strong></p>
 <p><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/03-Identity_Management_Testing/README">Testing for Account Enumeration and Guessable User Account</a></p>
 <p><a href="https://www.strongdm.com/blog/authentication-vulnerabilities">11 Common Authentication Vulnerabilities You Need to Know</a></p>
+<hr />
+<hr />
 <h2 id="cybok-knowledge-applied">CyBOK knowledge applied</h2>
 <ul>
 <li>
@@ -254,7 +232,7 @@ b) Website for services fang.onlyforshowhacks.com</p>
 <p><strong>memory management vulnerabilities</strong></p>
 <p>attacks</p>
 <p>code corruption attacks</p>
-<p>control-fow hijack attacks</p>
+<p>control-flow hijack attacks</p>
 <p>information leak attack</p>
 <p>data-only-attacks</p>
 <p>safe languages</p>
