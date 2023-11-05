@@ -16,7 +16,12 @@
         <link href="../stylesheets/extra.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script>hljs.highlightAll();</script> 
-    </head>
+     <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
 
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -37,9 +42,6 @@
                             <li class="navitem">
                                 <a href="../security/" class="nav-link">Scope</a>
                             </li>
-                            <li class="navitem active">
-                                <a href="./" class="nav-link">Network</a>
-                            </li>
                             <li class="navitem">
                                 <a href="../application/" class="nav-link">Application</a>
                             </li>
@@ -49,21 +51,22 @@
                             <li class="navitem">
                                 <a href="../database/" class="nav-link">Database</a>
                             </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Network</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../discoveries.md" class="nav-link">Other</a>
+                            </li>
                         </ul>
 
                     <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../security/" class="nav-link">
+                                <a rel="prev" href="../database/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../application/" class="nav-link">
+                                <a rel="next" class="nav-link disabled">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -114,7 +117,7 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p><img alt="Scanned Network" src="../netw.png" /></p>
+<p><a class="glightbox" href="../netw.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Scanned Network" src="../netw.png" /></a></p>
 <h3 style="color:rgb(167, 22, 102)">Goals</h3>
 
 <p>In this assignment, my goal was to look at ways on how individuals can improve their SOHO network security.  </p>
@@ -163,8 +166,8 @@ Physical Layer Threats: Sniffing attacks.</p>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><img alt="Server up" src="../image-13.png" /></td>
-<td style="text-align: left;"><img alt="fang" src="../image-14.png" /></td>
+<td style="text-align: left;"><a class="glightbox" href="../image-13.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Server up" src="../image-13.png" /></a></td>
+<td style="text-align: left;"><a class="glightbox" href="../image-14.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="fang" src="../image-14.png" /></a></td>
 </tr>
 </tbody>
 </table>
@@ -175,9 +178,30 @@ Physical Layer Threats: Sniffing attacks.</p>
 </span></code></pre></div>
 </li>
 <li>
-<p>Create simple 'Hello from Fang" flask application and save in var </p>
+<p>Create simple 'Hello from Fang" flask application </p>
+</li>
+<li>
+<p>Configure gunicorn config in nginx /etc/nginx/sites-available which NGINX will use to route Flask application using Gunicorn to webserver Nginx</p>
 </li>
 </ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>sudo nano fang.conf
+</span></code></pre></div>
+<p><div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>server {
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>    listen 80;
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>    location/{
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>            include pass http://unix:/home/servername/codefolder/******.sock; #folder where flask application is saved
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>            proxy pass http://127.0.0.1:8000; # this is where gunicorn is workers will launch
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>            proxy_set_header Host $host;
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>            }
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a>}
+</span></code></pre></div>
+🔔 Reminder note : Remove the default config file created by NGINX to launch default html page<b>
+🔔 Reminder link config file to sites-enabled</p>
 <table>
 <thead>
 <tr>
@@ -202,24 +226,24 @@ Physical Layer Threats: Sniffing attacks.</p>
 <td style="text-align: left;">Nginx</td>
 <td style="text-align: left;">Proxy Server</td>
 </tr>
-<tr>
-<td style="text-align: left;">Cloudflare</td>
-<td style="text-align: left;">DNS</td>
-</tr>
 </tbody>
 </table>
 <p><br><br></p>
 <hr />
 <h2 id="step-3-port-forwarding">Step 3: Port Forwarding</h2>
-<p><img alt="Server" src="../image.png" /></p>
+<p><a class="glightbox" href="../image.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Server" src="../image.png" /></a></p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Threat</th>
+<th style="text-align: left;">Solution</th>
 <th style="text-align: left;">Category</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align: left;">Cloudflare</td>
+<td style="text-align: left;">🔐 DNS</td>
+</tr>
 <tr>
 <td style="text-align: left;">Cloudflare</td>
 <td style="text-align: left;">Tunnel</td>
@@ -228,11 +252,11 @@ Physical Layer Threats: Sniffing attacks.</p>
 </table>
 <h2 id="step-4-improve-security">Step 4: Improve Security</h2>
 <p><strong> Security Goals </strong>
-Identify common vulnerabilites of a SOHO Network and ways to prevent them. </p>
-<p><img alt="Scanned Network" src="../image-7.png" />
+Identify common vulnerabilites of a SOHO Network and put in measures to prevent attacks. </p>
+<p><a class="glightbox" href="../image-7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Scanned Network" src="../image-7.png" /></a>
 <strong> LAN Architecture </strong></p>
 <p><strong> Attacker Models </strong></p>
-<p><img alt="Alt text" src="../image-8.png" /></p>
+<p><a class="glightbox" href="../image-8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-8.png" /></a></p>
 <h3 id="stride"><a href="https://learn.microsoft.com/en-us/azure/security/develop/threat-modeling-tool-threats">STRIDE</a></h3>
 <p>Spoofing<br>
 Tampering <br>
@@ -417,29 +441,8 @@ Software-Defned Networking and Network Function Virtualisation
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../js/base.js"></script>
-        <script src="../search/main.js"></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -480,5 +483,5 @@ Software-Defned Networking and Network Function Virtualisation
     </div>
 </div>
 
-    </body>
+    <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>

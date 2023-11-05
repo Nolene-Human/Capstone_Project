@@ -16,7 +16,12 @@
         <link href="../stylesheets/extra.css" rel="stylesheet">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
         <script>hljs.highlightAll();</script> 
-    </head>
+     <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
 
     <body>
         <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
@@ -38,9 +43,6 @@
                                 <a href="../security/" class="nav-link">Scope</a>
                             </li>
                             <li class="navitem">
-                                <a href="../networking/" class="nav-link">Network</a>
-                            </li>
-                            <li class="navitem">
                                 <a href="../application/" class="nav-link">Application</a>
                             </li>
                             <li class="navitem active">
@@ -49,14 +51,15 @@
                             <li class="navitem">
                                 <a href="../database/" class="nav-link">Database</a>
                             </li>
+                            <li class="navitem">
+                                <a href="../networking/" class="nav-link">Network</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../discoveries.md" class="nav-link">Other</a>
+                            </li>
                         </ul>
 
                     <ul class="nav navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
-                                <i class="fa fa-search"></i> Search
-                            </a>
-                        </li>
                             <li class="nav-item">
                                 <a rel="prev" href="../application/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
@@ -98,7 +101,7 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p><img alt="Scanned Network" src="../cry.png" /></p>
+<p><a class="glightbox" href="../cry.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Scanned Network" src="../cry.png" /></a></p>
 <h3 style="color:rgb(167, 22, 102)">Goal</h3>
 
 <p>The goal is to understand and implement relevant CyBOK topics in my application as possible. Here the reader can follow my learnings and reason for applying certain cryptography methods.  </p>
@@ -115,7 +118,7 @@
 <p>💪</p>
 <h3 id="data-encryption-mechanisms-tls-transport-layer-security-data-in-transit">Data Encryption Mechanisms / TLS (Transport Layer Security) / Data In Transit</h3>
 <p>An admin application is using python and gmail to send a response to clients enquiry. </p>
-<p><img alt="Alt text" src="../image-20.png" /></p>
+<p><a class="glightbox" href="../image-20.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-20.png" /></a></p>
 <h3 id="before">Before</h3>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>import smtplib
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>
@@ -135,7 +138,7 @@
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>print(&#39;mail sent&#39;)
 </span></code></pre></div>
-<p><img alt="Alt text" src="../image-21.png" /></p>
+<p><a class="glightbox" href="../image-21.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-21.png" /></a></p>
 <h3 id="after">After</h3>
 <p>Two things was improved.</p>
 <p>a) Changing SSL / TLS to communicate on port 465 instead of 587 as port 465 encrypt from start of message,ensuring that the connection is secure from the beginning vs 587 that start out with plain text and upgrade to TLS if possible.</p>
@@ -188,7 +191,7 @@
 </span><span id="__span-1-44"><a id="__codelineno-1-44" name="__codelineno-1-44" href="#__codelineno-1-44"></a>#console log
 </span><span id="__span-1-45"><a id="__codelineno-1-45" name="__codelineno-1-45" href="#__codelineno-1-45"></a>print(&#39;email sent&#39;)
 </span></code></pre></div>
-<p><img alt="Alt text" src="../image-24.png" /></p>
+<p><a class="glightbox" href="../image-24.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-24.png" /></a></p>
 <p><br></p>
 <h2 id="data-encryption-mechanisms-tls-transport-layer-security-data-at-rest">Data Encryption Mechanisms / TLS (Transport Layer Security) / Data At Rest</h2>
 <p>Database</p>
@@ -339,29 +342,8 @@ shortest vector problem</p>
                 shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
         </script>
         <script src="../js/base.js"></script>
-        <script src="../search/main.js"></script>
 
-        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title" id="searchModalLabel">Search</h4>
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-                <p>From here you can search these documents. Enter your search terms below.</p>
-                <form>
-                    <div class="form-group">
-                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
-                    </div>
-                </form>
-                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
-            </div>
-            <div class="modal-footer">
-            </div>
-        </div>
-    </div>
-</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -402,5 +384,5 @@ shortest vector problem</p>
     </div>
 </div>
 
-    </body>
+    <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
 </html>
