@@ -106,14 +106,14 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#resolved" class="nav-link">Resolved</a>
+            <li class="nav-item" data-level="2"><a href="#resolution" class="nav-link">Resolution</a>
               <ul class="nav flex-column">
               </ul>
             </li>
               </ul>
             </li>
             
-            <li class="nav-item" data-level="1"><a href="#fang-education_1" class="nav-link">Fang Education</a>
+            <li class="nav-item" data-level="1"><a href="#fang-services" class="nav-link">Fang Services</a>
               <ul class="nav flex-column">
             <li class="nav-item" data-level="2"><a href="#application-vulnerability-score_1" class="nav-link">Application Vulnerability Score</a>
               <ul class="nav flex-column">
@@ -208,7 +208,7 @@ All  it took was to update Streamlit from version ==1.23.0 to ==1.28.1 for <em>A
 <p>🔐 Snyk sends a weekly security update on vulnerabilities identified in GIT repositories</p>
 <p><strong>Lesson learnt</strong></p>
 <p>💪Do not wait until the end of the built before doing vulnerability testing. This applicatin was not feature rich, and fixing the vulnerabilities was easy. For my more complicated applications, a more robust process needs to be followed.</p>
-<h4 style='color:rgb(167, 22, 102)'> Scan Result before fix</h4>
+<h4 style='color:rgb(167, 22, 102)'> Scan Result Before Fix</h4>
 
 <p><a class="glightbox" href="../image-39.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="FangEDU_Snyk" src="../image-39.png" /></a></p>
 <table>
@@ -254,7 +254,7 @@ Affected versions of this package are vulnerable to Improper Output Neutralizati
   </tr>
 </table>
 
-<h4 style='color:rgb(167, 22, 102)'> Scan Result after fix</h4>
+<h4 style='color:rgb(167, 22, 102)'> Scan Result After Fix</h4>
 
 <p><a class="glightbox" href="../image-41.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-41.png" /></a>
 <a class="glightbox" href="../image-40.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-40.png" /></a></p>
@@ -267,10 +267,8 @@ Affected versions of this package are vulnerable to Improper Output Neutralizati
 <li>Accept the risk identified by Snyk however not an issue at launch and fixed new vulnerabilities or,</li>
 <li>Find another hosting service that will launch with the latest Streamlit version </li>
 </ul>
-<p>L2: Sollution Cross Site Scripting is to set the content security policy header which means that only resources from the same origin can be loaded. This solution can be implemented in various ways depending on the stack being used.</p>
-<p style='color:red'> 🚨 Streamlit, as at the date of the launch do not allow custom http headers to mitigate this threat! </p>
-<p><a href="https://discuss.streamlit.io/t/no-csp-header-in-the-http-response/36537">Streamlit : CSP</a><br></p>
-<p><strong><em>flask</em></strong><br></p>
+<h4 style='color:rgb(167, 22, 102)'> Scan Result Before Fix</h4>
+
 <p><a class="glightbox" href="../image-45.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-45.png" /></a></p>
 <table>
   <tr>
@@ -296,46 +294,81 @@ Affected versions of this package are vulnerable to Improper Output Neutralizati
 </table>
 <p><br></p>
 <h2 id="pentesting">Pentesting</h2>
+<p style='color:red'> 🚨 Streamlit, as at the date of launch do not allow setting http headers to mitigate threat! </p>
+<p><a href="https://discuss.streamlit.io/t/no-csp-header-in-the-http-response/36537">Streamlit : CSP</a><br></p>
+<p>HTTP headers are set to provide an additional layer of defence against attacks. However, in some instances, an application would not want to set these headers, as, for example, an application might allow inframe embedding (prevented by the x-frame header option).</p>
+<p>Further research into what each header does or prevents was required to be able to see if the missing headers have a real impact.</p>
+<p><b>X-Frame Option</b>
+Is the page allowed to render in an iframe? An iframe embeds another URL into a web page and, if allowed, can cause clickjacking attacks. (L1)</p>
+<p><b>Content Security Policy (CSP)</b>
+Is an additional defence against cross-site scripting (XSS), but setting a header in itself will not protect against XSS.</p>
+<p><b>Strict Transport Security Headers</b>
+Setting strict transport security headers prevents man-in-the-middle attacks. For example, if a user does not explicitly enter HTTPS and just enter fang.onrender.com, then the browser can direct the user to http://fang.onrender.com instead of the correct https://fang.onrender.com site.</p>
+<p>Further research watching Bug Bounty Tips revealed that missing headers do not necessarily equate to a vulnerable site. Further penetration testing is required to assess the probability of the vulnerabilities.</p>
+<p>During website enumeration the page most vulnerable to </p>
 <table>
   <tr>
     <th>Number</th>
     <th>Vulnerability</th>
-    <th>Test</th>
     <th>Solution</th>
+    <th>Test</th>
   </tr>
 <tr>
     <td>L1</td>
     <td>Missing Anti-clickjacking Header</td>
-    <td>Streamlit does not support CSP or any other  </td>
-    <td>* Sending the proper Content Security Policy (CSP) frame-ancestors directive response headers that instruct the browser to not allow framing from other domains. The older X-Frame-Options HTTP headers is used for graceful degradation and older browser compatibility.<br>
-* Properly setting authentication cookies with SameSite=Strict (or Lax), unless they explicitly need None (which is rare).<br>
-* Employing defensive code in the UI to ensure that the current frame is the most top level window.</td>
+    <td>Streamlit does not support CSP or any other Header methods to prevent clickjacking attacks.</td>
+    <td></td>
 </tr>
 <tr>
     <td>L2</td>
     <td> Content Security Policy (CSP) Header Not Set</td>
-    <td> Streamlit does not support setting security headings</td>
-    <td> Validate input data and encode output data </td>
+    <td> There are two way to set content security policies.
+    a) HTML meta tag and HTTP response header. This application is not using HTML</td>
+    <td> Burb Suite Clickbandit revealed every possible click on the website is subject to clickjacking.
+The report can be viewed in the link below</td>
 
 
 </tr>
 </table>
 
-<h4 style='color:rgb(167, 22, 102)'>L1: Missing Anti-clickjacking Header</h4>
+<h4 style='color:rgb(167, 22, 102)'>L1: Testing</h4>
 
-<p>After testing the application using Burp Suite Clickbandit it revealed that every possible click on the website is subject to clickjacking.
-The report can be viewed <a href="../clickjacked.html">here</a>.</p>
+<p><a href="../clickjacked.html">Clickjacking Report</a></p>
+<p>Further attempt to see if an <code>&lt;iframe&gt;</code> can be inserted I ran an attack using a basic test to see how the site handles dangerous characters, using Burb Suit.</p>
+<p><strong>Attack</strong>
+<a class="glightbox" href="../image-54.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-54.png" /></a></p>
+<p><strong>Results</strong></p>
+<p><a class="glightbox" href="../image-53.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-53.png" /></a></p>
+<h4 style='color:rgb(167, 22, 102)'>L2: Testing</h4>
+
+<p>When attempting a basic Reflective XSS <code>&lt;script&gt;alert()&lt;/script&gt;</code> no script got injected.</p>
+<h2 id="resolution">Resolution</h2>
 <h4 style='color:rgb(167, 22, 102)'>L2: Solution</h4>
-
-<p>Attempt to run xss</p>
+<p>Reflective XSS: <a href="https://www.cobalt.io/blog/a-pentesters-guide-to-cross-site-scripting-xss">Remove</a> blacklisted characters '';! - "<XSS>=&amp;{()} scritp SCRIOT.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>      newname=&quot;&quot;
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>      newnumber=&quot;&quot;
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>      newemail=&quot;&quot;
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        for name in form_name:
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>            if name == &quot;;&quot; or name ==&quot;!&quot; or name ==&quot;-&quot;or name ==&quot;&lt;&quot;or name ==&quot;XSS&quot;or name ==&quot;&gt;&quot;or name ==&quot;=&quot;or name == &quot;&amp;&quot; or name == &quot;(&quot;or name == &quot;)&quot;or name == &quot;{&quot;or name == &quot;}&quot; or name == &quot;SCRIPT&quot;or name == &quot;script&quot;:
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                name = &quot;&quot;
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>            else:
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>                newname=newname+name
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>         for email in form_email:
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>            if email == &quot;;&quot; or email ==&quot;!&quot; or email ==&quot;-&quot;or email ==&quot;&lt;&quot;or email ==&quot;XSS&quot;or email ==&quot;&gt;&quot;or email ==&quot;=&quot;or email == &quot;&amp;&quot; or email == &quot;(&quot;or email == &quot;)&quot;or email == &quot;{&quot;or email == &quot;}&quot;email == &quot;SCRIPT&quot; or email ==&quot;script&quot;:
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>                email = &quot;&quot;
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>            else:
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>                newemail=newemail+email
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>         for number in form_number:
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>            if number == &quot;;&quot; or number ==&quot;!&quot; or number ==&quot;-&quot;or number ==&quot;&lt;&quot;or number ==&quot;XSS&quot;or number ==&quot;&gt;&quot;or number ==&quot;=&quot;or number == &quot;&amp;&quot; or number == &quot;(&quot;or number == &quot;)&quot;or number == &quot;{&quot;or number == &quot;}&quot;number ==&quot;SCRIPT&quot;or number ==&quot;script&quot;:
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>                number = &quot;&quot;
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>            else:
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>                newnumber=newenumber+number
+</span></code></pre></div>
 <p><a class="glightbox" href="../image-50.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-50.png" /></a></p>
-<h2 id="resolved">Resolved</h2>
-<p>Sanitise input:
-Remove 'script' from user input.</p>
 <p>After Input has been sanitised</p>
 <p><a class="glightbox" href="../image-51.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-51.png" /></a><a class="glightbox" href="../image-52.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-52.png" /></a></p>
 <hr />
-<h1 id="fang-education_1">Fang Education</h1>
+<h1 id="fang-services">Fang Services</h1>
 <h3 style="color:rgb(167, 22, 102)">Goal</h3>
 
 <p>The goal is to imporve my application security and reduce the risk of attacks by testing the application througout the Software Development Life Cycle set out by OWASP.
@@ -372,10 +405,10 @@ This document is recording the 'the test early and test often' methodology appli
 <h2 id="before-development-begins">Before Development Begins</h2>
 <p><strong> Lessons learnt </strong>
 💪 Application headers to prevent cross site scripting
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>@app.after_request
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>def add_security_headers(resp):
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    resp.headers[&#39;Content-Security-Policy&#39;] = &quot;default-src &#39;self&#39;&quot;
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    return resp
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>@app.after_request
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>def add_security_headers(resp):
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    resp.headers[&#39;Content-Security-Policy&#39;] = &quot;default-src &#39;self&#39;&quot;
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    return resp
 </span></code></pre></div></p>
 <hr />
 <p>A threat model using Microsoft Thread Modeling Tool was created to identify the possible threats on a typical login form.
@@ -392,20 +425,19 @@ The results identified an extensive list of threats that can be avoided during b
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Use Multi-Factor Authentication (MFA)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Limit Login Attempts <br><br>
 Other</li>
-<li>Credential Storage : Store user credentials securely using hashing and salting techniques <a href="/cryptography">see cryptography</a><br></li>
-<li>Credential Verification : hash the provided password in the same way as the stored hash, and compare the two. If they match, the password is correct.<a href="/cryptography">see cryptography</a><br></li>
-<li>Secure Transmission : Always transmit credentials securely using encryption protocols like HTTPS.<a href="/networking">see network</a><br></li>
-<li>Implement input validation : Define and enforce maximum size limits for all incoming parameters and payloads<a href="/networking">see network</a><br></li>
-<li>Use load balancing : Distribute traffic across multiple servers<a href="/networking">see network</a><br></li>
-<li>Implement server-side caching : This can reduce the number of requests to the server<a href="/networking">see network</a><br></li>
-<li>Monitor and log server activity : This can help detect and respond to unusual resource consumption<a href="/networking">see network</a><br>
+<li>Credential Storage : Store user credentials securely using hashing and salting techniques <a href="../cryptography/">see cryptography</a><br></li>
+<li>Credential Verification : hash the provided password in the same way as the stored hash, and compare the two. If they match, the password is correct.<a href="../cryptography/">see cryptography</a><br></li>
+<li>Secure Transmission : Always transmit credentials securely using encryption protocols like HTTPS.<a href="../networking/">see network</a><br></li>
+<li>Use load balancing : Distribute traffic across multiple servers<a href="../networking/">see network</a><br></li>
+<li>Implement server-side caching : This can reduce the number of requests to the server<a href="../networking/">see network</a><br></li>
+<li>Monitor and log server activity : This can help detect and respond to unusual resource consumption<a href="../networking/">see network</a><br>
 <br></li>
 </ul>
 </li>
 <li class="task-list-item">
 <p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Data Flow HTTPS Is Potentially Interrupted</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Implement a Web Application Firewall (WAF)<a href="/networking">see network</a><br><br> </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Implement a Web Application Firewall (WAF)<a href="../networking/">see network</a><br><br> </li>
 </ul>
 </li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Potential Process Crash or Stop for Web Application <p style="color:rgb(167, 22, 102)"> outside of scope<p></li>
@@ -439,8 +471,8 @@ Elevation of Privilege</p>
 <ul class="task-list">
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing of Destination Data Store login</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing the Browser External Entity</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing of Destination Data Store SQL Database <a href="/database">see database</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing of Source Data Store check login credentials <a href="/database">see database</a></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing of Destination Data Store SQL Database <a href="../database/">see database</a></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing of Source Data Store check login credentials <a href="../database/">see database</a></li>
 </ul>
 <p><strong> Authentication </strong>: Use standard authentication mechanisms to verify the identity of the source data store. This could involve using secure protocols such as HTTPS which provide built-in authentication.</p>
 <p><strong> Input Validation </strong>: Ensure that all inputs are validated and sanitized to prevent malicious inputs from being processed.</p>
