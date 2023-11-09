@@ -335,34 +335,57 @@ The report can be viewed in the link below</td>
 
 <p><a href="../clickjacked.html">Clickjacking Report</a></p>
 <p>Further attempt to see if an <code>&lt;iframe&gt;</code> can be inserted I ran an attack using a basic test to see how the site handles dangerous characters, using Burb Suit.</p>
-<p><strong>Attack</strong>
-<a class="glightbox" href="../image-54.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-54.png" /></a></p>
+<p><strong>Attack</strong></p>
+<p>Clickjacking file on local instance:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&lt;!DOCTYPE html&gt;&lt;html&gt;
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>&lt;head&gt;
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>&lt;title&gt;Clickjacking Test&lt;/title&gt;
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>&lt;/head&gt;
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>&lt;body&gt; 
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>&lt;iframe src=&quot;http://127.0.0.1:5000/&quot;&gt;
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>&lt;/iframe&gt;
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>&lt;/body&gt;
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>&lt;/html&gt;
+</span></code></pre></div>
 <p><strong>Results</strong></p>
-<p><a class="glightbox" href="../image-53.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-53.png" /></a></p>
+<p><b style='color:red'> FAIL</b>
+<a class="glightbox" href="../image-56.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-56.png" /></a></p>
+<p><strong>Attack</strong></p>
+<p>Clickjacking basic test to see how site handles 'dangerous characters' input through  Burp Suite:</p>
+<p><a class="glightbox" href="../image-54.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-54.png" /></a></p>
+<p><strong>Results</strong></p>
+<p>Website response
+<a class="glightbox" href="../image-53.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-53.png" /></a></p>
+<p>Burp Suite header response 
+<a class="glightbox" href="../image-57.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-57.png" /></a></p>
+<p><strong>Attack</strong>
+Clickjacking file on live site hosted on Render.com:</p>
 <h4 style='color:rgb(167, 22, 102)'>L2: Testing</h4>
 
 <p>When attempting a basic Reflective XSS <code>&lt;script&gt;alert()&lt;/script&gt;</code> no script got injected.</p>
 <h2 id="resolution">Resolution</h2>
+<p>Streamlit hardcoded "allowed-message-origin" into their stack. This refers to Cross-Origin Resource Sharing (CORS) security headers </p>
+<p><a class="glightbox" href="../image-55.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-55.png" /></a></p>
 <h4 style='color:rgb(167, 22, 102)'>L2: Solution</h4>
 <p>Reflective XSS: <a href="https://www.cobalt.io/blog/a-pentesters-guide-to-cross-site-scripting-xss">Remove</a> blacklisted characters '';! - "<XSS>=&amp;{()} scritp SCRIOT.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>      newname=&quot;&quot;
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>      newnumber=&quot;&quot;
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>      newemail=&quot;&quot;
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        for name in form_name:
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>            if name == &quot;;&quot; or name ==&quot;!&quot; or name ==&quot;-&quot;or name ==&quot;&lt;&quot;or name ==&quot;XSS&quot;or name ==&quot;&gt;&quot;or name ==&quot;=&quot;or name == &quot;&amp;&quot; or name == &quot;(&quot;or name == &quot;)&quot;or name == &quot;{&quot;or name == &quot;}&quot; or name == &quot;SCRIPT&quot;or name == &quot;script&quot;:
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>                name = &quot;&quot;
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>            else:
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>                newname=newname+name
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>         for email in form_email:
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>            if email == &quot;;&quot; or email ==&quot;!&quot; or email ==&quot;-&quot;or email ==&quot;&lt;&quot;or email ==&quot;XSS&quot;or email ==&quot;&gt;&quot;or email ==&quot;=&quot;or email == &quot;&amp;&quot; or email == &quot;(&quot;or email == &quot;)&quot;or email == &quot;{&quot;or email == &quot;}&quot;email == &quot;SCRIPT&quot; or email ==&quot;script&quot;:
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>                email = &quot;&quot;
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>            else:
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>                newemail=newemail+email
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>         for number in form_number:
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>            if number == &quot;;&quot; or number ==&quot;!&quot; or number ==&quot;-&quot;or number ==&quot;&lt;&quot;or number ==&quot;XSS&quot;or number ==&quot;&gt;&quot;or number ==&quot;=&quot;or number == &quot;&amp;&quot; or number == &quot;(&quot;or number == &quot;)&quot;or number == &quot;{&quot;or number == &quot;}&quot;number ==&quot;SCRIPT&quot;or number ==&quot;script&quot;:
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>                number = &quot;&quot;
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>            else:
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>                newnumber=newenumber+number
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>      newname=&quot;&quot;
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>      newnumber=&quot;&quot;
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>      newemail=&quot;&quot;
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>        for name in form_name:
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>            if name == &quot;;&quot; or name ==&quot;!&quot; or name ==&quot;-&quot;or name ==&quot;&lt;&quot;or name ==&quot;XSS&quot;or name ==&quot;&gt;&quot;or name ==&quot;=&quot;or name == &quot;&amp;&quot; or name == &quot;(&quot;or name == &quot;)&quot;or name == &quot;{&quot;or name == &quot;}&quot; or name == &quot;SCRIPT&quot;or name == &quot;script&quot;:
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>                name = &quot;&quot;
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>            else:
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>                newname=newname+name
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>         for email in form_email:
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>            if email == &quot;;&quot; or email ==&quot;!&quot; or email ==&quot;-&quot;or email ==&quot;&lt;&quot;or email ==&quot;XSS&quot;or email ==&quot;&gt;&quot;or email ==&quot;=&quot;or email == &quot;&amp;&quot; or email == &quot;(&quot;or email == &quot;)&quot;or email == &quot;{&quot;or email == &quot;}&quot;email == &quot;SCRIPT&quot; or email ==&quot;script&quot;:
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>                email = &quot;&quot;
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>            else:
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>                newemail=newemail+email
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>         for number in form_number:
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>            if number == &quot;;&quot; or number ==&quot;!&quot; or number ==&quot;-&quot;or number ==&quot;&lt;&quot;or number ==&quot;XSS&quot;or number ==&quot;&gt;&quot;or number ==&quot;=&quot;or number == &quot;&amp;&quot; or number == &quot;(&quot;or number == &quot;)&quot;or number == &quot;{&quot;or number == &quot;}&quot;number ==&quot;SCRIPT&quot;or number ==&quot;script&quot;:
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>                number = &quot;&quot;
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>            else:
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>                newnumber=newenumber+number
 </span></code></pre></div>
 <p><a class="glightbox" href="../image-50.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-50.png" /></a></p>
 <p>After Input has been sanitised</p>
@@ -405,10 +428,10 @@ This document is recording the 'the test early and test often' methodology appli
 <h2 id="before-development-begins">Before Development Begins</h2>
 <p><strong> Lessons learnt </strong>
 💪 Application headers to prevent cross site scripting
-<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>@app.after_request
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>def add_security_headers(resp):
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>    resp.headers[&#39;Content-Security-Policy&#39;] = &quot;default-src &#39;self&#39;&quot;
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>    return resp
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>@app.after_request
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>def add_security_headers(resp):
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    resp.headers[&#39;Content-Security-Policy&#39;] = &quot;default-src &#39;self&#39;&quot;
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    return resp
 </span></code></pre></div></p>
 <hr />
 <p>A threat model using Microsoft Thread Modeling Tool was created to identify the possible threats on a typical login form.
