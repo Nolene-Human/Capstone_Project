@@ -94,6 +94,15 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#conclusion" class="nav-link">Conclusion</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#pentesting" class="nav-link">Pentesting</a>
+              <ul class="nav flex-column">
             <li class="nav-item" data-level="2"><a href="#during-development" class="nav-link">During Development</a>
               <ul class="nav flex-column">
               </ul>
@@ -102,7 +111,7 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#pentesting" class="nav-link">Pentesting</a>
+            <li class="nav-item" data-level="2"><a href="#pentesting_1" class="nav-link">Pentesting</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -168,6 +177,13 @@
 </tbody>
 </table>
 <hr />
+<h2 id="conclusion">Conclusion</h2>
+<p>Streamlit does not offer CSP headers but has Cross-Origin Resource Sharing (CORS) hard coded into the stack. Bug Bounty programs identified that even setting the headers won't always protect against XSS and Clickjacking. 
+During Pentesting against XSS failed. There was no resources to test clickjacking except for inserting the application in an iframe, overlaying it with malicious code. Through social engineering the attacker will then be able to attack unsuspected users.</p>
+<p>The risk was reduce through input validation and output encoding.
+In conclusion, I will not recommend using this stack for high-risk applications. </p>
+<hr />
+<h1 id="pentesting">Pentesting</h1>
 <p>Fang Education is a non-technical cyberscurity educational web application tool. </p>
 <p>Funtions included<br>
 - What is Fang<br>
@@ -293,7 +309,7 @@ Affected versions of this package are vulnerable to Improper Output Neutralizati
 </tr>
 </table>
 <p><br></p>
-<h2 id="pentesting">Pentesting</h2>
+<h2 id="pentesting_1">Pentesting</h2>
 <p style='color:red'> 🚨 Streamlit, as at the date of launch do not allow setting http headers to mitigate threat! </p>
 <p><a href="https://discuss.streamlit.io/t/no-csp-header-in-the-http-response/36537">Streamlit : CSP</a><br></p>
 <p>HTTP headers are set to provide an additional layer of defence against attacks. However, in some instances, an application would not want to set these headers, as, for example, an application might allow inframe embedding (prevented by the x-frame header option).</p>
@@ -331,7 +347,8 @@ The report can be viewed in the link below</td>
 </tr>
 </table>
 
-<h4 style='color:rgb(167, 22, 102)'>L1: Testing</h4>
+<p><br></p>
+<h4 style='color:rgb(167, 22, 102)'>L1 | Clickjacking: Testing</h4>
 
 <p><a href="../clickjacked.html">Clickjacking Report</a></p>
 <p>Further attempt to see if an <code>&lt;iframe&gt;</code> can be inserted I ran an attack using a basic test to see how the site handles dangerous characters, using Burb Suit.</p>
