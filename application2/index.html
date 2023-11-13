@@ -91,6 +91,11 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="1"><a href="#pentesting" class="nav-link">Pentesting</a>
+              <ul class="nav flex-column">
             <li class="nav-item" data-level="2"><a href="#before-development-begins" class="nav-link">Before Development Begins</a>
               <ul class="nav flex-column">
               </ul>
@@ -100,6 +105,14 @@
               </ul>
             </li>
             <li class="nav-item" data-level="2"><a href="#during-development" class="nav-link">During Development</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#during-built" class="nav-link">During Built</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#during-deployment" class="nav-link">During Deployment</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -114,10 +127,7 @@
 <h1 id="fang-services">Fang Services</h1>
 <h3 style="color:rgb(167, 22, 102)">Goal</h3>
 
-<p>The goal is to imporve my application security and reduce the risk of attacks by testing the application througout the Software Development Life Cycle set out by OWASP.
-This document is recording the 'the test early and test often' methodology through applied threat modeling, automated testing (Snyk), code review and pentesting techniques.  </p>
-<h3 style="color:rgb(167, 22, 102)">The Journey</h3>
-
+<p>This document outlines the applied ‘test early and test often’ methodology to enhance the security of the application and mitigate the risk of attacks. Following the Software Development Life Cycle (SDLC) model proposed by the Open Web Application Security Project (OWASP) , which consists of seven phases: definition, design, development, testing, deployment, maintenance, and retirement. In each phase, this project performed various security activities, such as threat modeling, automated testing (using Snyk), code review, and pentesting techniques, to identify and address any vulnerabilities or weaknesses in the application. </p>
 <h2 id="application-vulnerability-score">Application Vulnerability Score</h2>
 <table>
 <thead>
@@ -137,21 +147,33 @@ This document is recording the 'the test early and test often' methodology throu
 </tr>
 <tr>
 <td style="text-align: left;">Before Launch</td>
-<td style="text-align: left;"><p style='color:green'>ZERO</p></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr>
-<td style="text-align: left;">Launched</td>
-<td style="text-align: left;"><p style='color:orange'>MEDIUM</p></td>
+<td style="text-align: left;">During Deployment</td>
+<td style="text-align: left;"></td>
 </tr>
 </tbody>
 </table>
+<h1 id="pentesting">Pentesting</h1>
+<p>Fang Service is an application that will follow the Penetration Testing Execution Standards providing cybersecurity services for Small Office Home Office (SOHO). </p>
+<p>MVP:<br>
+- Verification<br>
+- Login<br>
+- Network Scanning Tool<br></p>
+<p>This application is built using:</p>
+<ul>
+<li>Python, <br></li>
+<li>Flask, and <br></li>
+<li>SQLite3</li>
+</ul>
+<p>This application will be hosted on-premises instead of a cloud service provider. </p>
 <h2 id="before-development-begins">Before Development Begins</h2>
-<hr />
-<p>A threat model using Microsoft Thread Modeling Tool was created to identify the possible threats on a typical login form.
+<p>A threat model, using Microsoft Thread Modeling Tool, was created to identify the possible threats on a typical login form.
 The results identified an extensive list of threats that can be avoided during built and the basis of the metrics criteria.</p>
 <p><strong> Threat Model </strong></p>
 <p>The standard Login Threat Model based on original design
-<a class="glightbox" href="image-9.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Login Threat Model" src="image-9.png" /></a></p>
+<a class="glightbox" href="../pictures/image-9.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Login Threat Model" src="../pictures/image-9.png" /></a></p>
 <p><strong> Measurement and Metrics Criteria and Ensure Traceability </strong></p>
 <p>Denial Of Service</p>
 <ul class="task-list">
@@ -161,7 +183,7 @@ The results identified an extensive list of threats that can be avoided during b
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Use Multi-Factor Authentication (MFA)</li>
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Limit Login Attempts <br><br>
 Other</li>
-<li>Credential Storage : Store user credentials securely using hashing and salting techniques <a href="../cryptography/">see cryptography</a><br></li>
+<li>Credential Storage : Store user credentials securely using hashing and salting techniques <a href="../database/">see database</a><br></li>
 <li>Credential Verification : hash the provided password in the same way as the stored hash, and compare the two. If they match, the password is correct.<a href="../cryptography/">see cryptography</a><br></li>
 <li>Secure Transmission : Always transmit credentials securely using encryption protocols like HTTPS.<a href="../networking/">see network</a><br></li>
 <li>Use load balancing : Distribute traffic across multiple servers<a href="../networking/">see network</a><br></li>
@@ -259,7 +281,12 @@ Elevation of Privilege</p>
 </ul>
 <p><br></p>
 <p><a class="glightbox" href="../pictures/image-38.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-38.png" /></a></p>
-<p>Secure: Flask provides built-in support for handling common web security features like cross-site request forgery (CSRF) protection and secure cookie handling.</p></div>
+<p>Secure: Flask provides built-in support for handling common web security features like cross-site request forgery (CSRF) protection and secure cookie handling.</p>
+<h2 id="during-built">During Built</h2>
+<h2 id="during-deployment">During Deployment</h2>
+<h4>Launcing a basic landing page</h4>
+
+<p><a class="glightbox" href="../pictures/image1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image1.png" /></a></p></div>
             </div>
         </div>
 
