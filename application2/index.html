@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        <link rel="canonical" href="https://cybersecurity1.com/application2/">
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>SelfhostedApplication - NoleneHuman__Capstone</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css">
+        <link href="../stylesheets/extra.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+     <link href="../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+        html.glightbox-open { overflow: initial; height: 100%; }
+        .gslide-title { margin-top: 0px; user-select: text; }
+        .gslide-desc { color: #666; user-select: text; }
+        .gslide-image img { background: white; }
+        </style> <script src="../assets/javascripts/glightbox.min.js"></script></head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="..">NoleneHuman__Capstone</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Welcome</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../application/" class="nav-link">HostedApplication</a>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">SelfhostedApplication</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../database/" class="nav-link">Database</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../networking/" class="nav-link">Network/Server</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../cryptography/" class="nav-link">Cryptography</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                            <li class="nav-item">
+                                <a rel="prev" href="../application/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../database/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#fang-services" class="nav-link">Fang Services</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#application-vulnerability-score" class="nav-link">Application Vulnerability Score</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#before-development-begins" class="nav-link">Before Development Begins</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#during-design" class="nav-link">During Design</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#during-development" class="nav-link">During Development</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<p><a class="glightbox" href="../pictures/service.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Scanned Network" src="../pictures/service.png" /></a></p>
+<h1 id="fang-services">Fang Services</h1>
+<h3 style="color:rgb(167, 22, 102)">Goal</h3>
+
+<p>The goal is to imporve my application security and reduce the risk of attacks by testing the application througout the Software Development Life Cycle set out by OWASP.
+This document is recording the 'the test early and test often' methodology through applied threat modeling, automated testing (Snyk), code review and pentesting techniques.  </p>
+<h3 style="color:rgb(167, 22, 102)">The Journey</h3>
+
+<h2 id="application-vulnerability-score">Application Vulnerability Score</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">PHASE</th>
+<th style="text-align: left;">Vulnerability Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Before Development Begins</td>
+<td style="text-align: left;"><p style='color:RED'>CRITICAL</p></td>
+</tr>
+<tr>
+<td style="text-align: left;">During Design</td>
+<td style="text-align: left;"><p style='color:RED'>CRITICAL</p></td>
+</tr>
+<tr>
+<td style="text-align: left;">Before Launch</td>
+<td style="text-align: left;"><p style='color:green'>ZERO</p></td>
+</tr>
+<tr>
+<td style="text-align: left;">Launched</td>
+<td style="text-align: left;"><p style='color:orange'>MEDIUM</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="before-development-begins">Before Development Begins</h2>
+<hr />
+<p>A threat model using Microsoft Thread Modeling Tool was created to identify the possible threats on a typical login form.
+The results identified an extensive list of threats that can be avoided during built and the basis of the metrics criteria.</p>
+<p><strong> Threat Model </strong></p>
+<p>The standard Login Threat Model based on original design
+<a class="glightbox" href="image-9.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Login Threat Model" src="image-9.png" /></a></p>
+<p><strong> Measurement and Metrics Criteria and Ensure Traceability </strong></p>
+<p>Denial Of Service</p>
+<ul class="task-list">
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Potential Excessive Resource Consumption for Web Application or check login credentials </p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Use Multi-Factor Authentication (MFA)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Limit Login Attempts <br><br>
+Other</li>
+<li>Credential Storage : Store user credentials securely using hashing and salting techniques <a href="../cryptography/">see cryptography</a><br></li>
+<li>Credential Verification : hash the provided password in the same way as the stored hash, and compare the two. If they match, the password is correct.<a href="../cryptography/">see cryptography</a><br></li>
+<li>Secure Transmission : Always transmit credentials securely using encryption protocols like HTTPS.<a href="../networking/">see network</a><br></li>
+<li>Use load balancing : Distribute traffic across multiple servers<a href="../networking/">see network</a><br></li>
+<li>Implement server-side caching : This can reduce the number of requests to the server<a href="../networking/">see network</a><br></li>
+<li>Monitor and log server activity : This can help detect and respond to unusual resource consumption<a href="../networking/">see network</a><br>
+<br></li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Data Flow HTTPS Is Potentially Interrupted</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Implement a Web Application Firewall (WAF)<a href="../networking/">see network</a><br><br> </li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Potential Process Crash or Stop for Web Application <p style="color:rgb(167, 22, 102)"> outside of scope<p></li>
+</ul>
+<p><br>
+Elevation of Privilege</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Cross Site Request Forgery </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Elevation by Changing the Execution Flow in Web Application </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Web Application May be Subject to Elevation of Privilege Using Remote Code Execution </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Elevation Using Impersonation</li>
+</ul>
+<p>Information Disclosure</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Weak Credential Storage</li>
+</ul>
+<p>Repudiation</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Potential Weak Protections for Audit Data </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Insufficient Auditing </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Lower Trusted Subject Updates Logs</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Data Logs from an Unknown Source </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Potential Data Repudiation by Web Application</li>
+</ul>
+<p>Tampering</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Risks from Logging </li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Cross Site Scripting</li>
+</ul>
+<p>Spoofing</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing of Destination Data Store login</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing the Browser External Entity</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing of Destination Data Store SQL Database <a href="../database/">see database</a></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing of Source Data Store check login credentials <a href="../database/">see database</a></li>
+</ul>
+<p><strong> Authentication </strong>: Use standard authentication mechanisms to verify the identity of the source data store. This could involve using secure protocols such as HTTPS which provide built-in authentication.</p>
+<p><strong> Input Validation </strong>: Ensure that all inputs are validated and sanitized to prevent malicious inputs from being processed.</p>
+<p><strong> Least Privilege Access </strong>: Implement least privilege access controls so that even if an attacker is able to spoof a source, they would not have sufficient privileges to perform harmful actions</p>
+<p><strong> Monitoring and Logging</strong> : Regularly monitor and log activities to detect any unusual behavior or access patterns</p>
+<h2 id="during-design">During Design</h2>
+<p><strong><em>Security Requirements</em></strong></p>
+<ul>
+<li>User management</li>
+<li>Authentication</li>
+<li>Authorization</li>
+<li>Data confidentiality</li>
+<li>Integrity</li>
+<li>Accountability</li>
+<li>Session management</li>
+<li>Transport security</li>
+<li>Tiered system segregation </li>
+</ul>
+<p><strong> Step 1 : Basic Login and possible vulnerabilities </strong></p>
+<p>Is started out with a standard login page and listed the common vulnerabilities.</p>
+<p><a class="glightbox" href="../pictures/image-17.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Step1" src="../pictures/image-17.png" /></a></p>
+<p><strong> Step 2 : Improved vulnerabilities through design </strong></p>
+<p>Redesigned the login page to remove design vulnerabilities:</p>
+<p><a class="glightbox" href="../pictures/image-29.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-29.png" /></a>
+<a class="glightbox" href="../pictures/image-30.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-30.png" /></a> 
+<a class="glightbox" href="../pictures/image-31.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-31.png" /></a> 
+<a class="glightbox" href="../pictures/image-33.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-33.png" /></a>
+<a class="glightbox" href="../pictures/image-34.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-34.png" /></a>
+<a class="glightbox" href="../pictures/image-36.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-36.png" /></a></p>
+<p>Logging returning after user has completed the verification
+<a class="glightbox" href="../pictures/image-37.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-37.png" /></a> </p>
+<h2 id="during-development">During Development</h2>
+<p><strong> Lessons learnt </strong></p>
+<p>💪 Application headers to prevent cross site scripting
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>@app.after_request
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>def add_security_headers(resp):
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    resp.headers[&#39;Content-Security-Policy&#39;] = &quot;default-src &#39;self&#39;&quot;
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    return resp
+</span></code></pre></div></p>
+<p>💢 <strong> The line between security and convenience </strong></p>
+<p>The first hurdle is to reduce the risks wihtout building an annoying user experience.</p>
+<p>During the development phase the design concept was combined with the practical aproach with questions like:</p>
+<ul>
+<li>Remove the risk of a weak password with a unique passphrase (token) emailed to user,</li>
+<li>Enforce One Time Passcode,</li>
+<li>Implement captcha,</li>
+<li>all of the above</li>
+</ul>
+<p><br></p>
+<p><a class="glightbox" href="../pictures/image-38.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-38.png" /></a></p>
+<p>Secure: Flask provides built-in support for handling common web security features like cross-site request forgery (CSRF) protection and secure cookie handling.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/jquery-3.6.0.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+
+        <div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    <script>const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});</script></body>
+</html>

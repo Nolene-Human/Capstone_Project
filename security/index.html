@@ -8,7 +8,7 @@
         
         <link rel="canonical" href="https://cybersecurity1.com/security/">
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Scope - NoleneHuman__Capstone</title>
+        <title>Security - NoleneHuman__Capstone</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -37,39 +37,26 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="navitem">
-                                <a href=".." class="nav-link">Home</a>
-                            </li>
-                            <li class="navitem active">
-                                <a href="./" class="nav-link">Scope</a>
+                                <a href=".." class="nav-link">Welcome</a>
                             </li>
                             <li class="navitem">
-                                <a href="../application/" class="nav-link">Application</a>
+                                <a href="../application/" class="nav-link">HostedApplication</a>
                             </li>
                             <li class="navitem">
-                                <a href="../cryptography/" class="nav-link">Cryptography</a>
+                                <a href="../application2/" class="nav-link">SelfhostedApplication</a>
                             </li>
                             <li class="navitem">
                                 <a href="../database/" class="nav-link">Database</a>
                             </li>
                             <li class="navitem">
-                                <a href="../networking/" class="nav-link">Network</a>
+                                <a href="../networking/" class="nav-link">Network/Server</a>
                             </li>
                             <li class="navitem">
-                                <a href="../discoveries.md" class="nav-link">Other</a>
+                                <a href="../cryptography/" class="nav-link">Cryptography</a>
                             </li>
                         </ul>
 
                     <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a rel="prev" href=".." class="nav-link">
-                                    <i class="fa fa-arrow-left"></i> Previous
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a rel="next" href="../application/" class="nav-link">
-                                    Next <i class="fa fa-arrow-right"></i>
-                                </a>
-                            </li>
                     </ul>
                 </div>
             </div>
@@ -127,6 +114,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#cybok-knowledge-applied" class="nav-link">CyBOK knowledge applied</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -165,7 +156,132 @@
 <p><br></p>
 <h2 id="during-deployment">During Deployment</h2>
 <h4 id="application-penetration-testing">Application Penetration Testing</h4>
-<h4 id="configuration-management-testing">Configuration Management Testing</h4></div>
+<h4 id="configuration-management-testing">Configuration Management Testing</h4>
+<hr />
+<hr />
+<h2 id="cybok-knowledge-applied">CyBOK knowledge applied</h2>
+<ul>
+<li>
+<p><strong>categories of vulnerabilities</strong></p>
+<ul>
+<li><strong>CVEs and CWEs</strong></li>
+<li>
+<p><strong>memory management vulnerabilities</strong></p>
+<p>attacks</p>
+<p>code corruption attacks</p>
+<p>control-flow hijack attacks</p>
+<p>information leak attack</p>
+<p>data-only-attacks</p>
+<p>safe languages</p>
+<p>temporal vulnerabilities</p>
+<p>spatial vulnerabilities</p>
+</li>
+<li>
+<p>structured output generation vulnerabilities</p>
+<p>SQL injection</p>
+<p>command injection vulnerabilities</p>
+<p>script injection vulnerabilities (XSS)</p>
+<p>stored injection vulnerabilites</p>
+<p>higher-order injection vulnerabilities</p>
+</li>
+<li>
+<p><strong>race condition vulnerabilities</strong></p>
+<p>concurrency bugs</p>
+<p>time-of-check to time-of-use</p>
+</li>
+<li>
+<p><strong>API vulnerabilities</strong></p>
+<p>correct use</p>
+<p>correct implementation</p>
+</li>
+<li>
+<p><strong>side-channel vulnerabilities</strong></p>
+<p>software-based side-channels</p>
+<p>covert channels</p>
+<p>micro-architectual effects</p>
+<p>fault-injection attacks</p>
+<p>physical fault-injection</p>
+<p>software fault-injection</p>
+<p>Rowhammer</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>prevention of vulnerabilities</strong></p>
+<ul>
+<li>
+<p><strong>API design</strong></p>
+<p>defensive programming</p>
+<p>sandboxing</p>
+<p>principle of least privilege</p>
+<p>assertions</p>
+<p>contracts</p>
+</li>
+<li>
+<p><strong>coding practices</strong></p>
+<p>coding guidelines</p>
+<p>MISRA</p>
+<p>dangerous functions</p>
+<p>programming idioms</p>
+<p>resource acquisition is initialisation</p>
+<p>move semantics</p>
+<p>smart pointers</p>
+<p>checking compliance</p>
+</li>
+<li>
+<p><strong>erroneous execution</strong></p>
+<p>trapped errors</p>
+<p>untrapped errors</p>
+</li>
+<li>
+<p><strong>language design and type systems</strong></p>
+<p>memory management mitigations</p>
+<p>immutable state</p>
+<p>dynamic checks</p>
+<p>static checks</p>
+</li>
+<li>
+<p><strong>structured output generations mitigations</strong></p>
+<p>type systems</p>
+<p>query generation</p>
+</li>
+<li>
+<p><strong>race condition mitigation</strong></p>
+<p>ownership</p>
+<p>aliasing</p>
+</li>
+<li>
+<p><strong>information flow</strong></p>
+</li>
+<li><strong>mitigating exploitation</strong></li>
+<li>
+<p><strong>runtime detection of attacks</strong></p>
+<p>stack canaries
+non-executable memory</p>
+<p>control fow integrity</p>
+</li>
+<li>
+<p><strong>automated software diversity</strong></p>
+<p>ASLR</p>
+</li>
+<li>
+<p><strong>limiting privileges</strong></p>
+<ul>
+<li>
+<p><strong>sandboxing</strong></p>
+<p>monitors</p>
+<p>jails</p>
+</li>
+</ul>
+<p>compartmentalisation</p>
+<p>object-capability systems</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>detection of vulnerabilities</strong></p>
+</li>
+</ul></div>
             </div>
         </div>
 

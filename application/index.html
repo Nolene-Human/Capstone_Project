@@ -8,7 +8,7 @@
         
         <link rel="canonical" href="https://cybersecurity1.com/application/">
         <link rel="shortcut icon" href="../img/favicon.ico">
-        <title>Application - NoleneHuman__Capstone</title>
+        <title>HostedApplication - NoleneHuman__Capstone</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
         <link href="../css/font-awesome.min.css" rel="stylesheet">
         <link href="../css/base.css" rel="stylesheet">
@@ -37,36 +37,33 @@
                         <!-- Main navigation -->
                         <ul class="nav navbar-nav">
                             <li class="navitem">
-                                <a href=".." class="nav-link">Home</a>
-                            </li>
-                            <li class="navitem">
-                                <a href="../security/" class="nav-link">Scope</a>
+                                <a href=".." class="nav-link">Welcome</a>
                             </li>
                             <li class="navitem active">
-                                <a href="./" class="nav-link">Application</a>
+                                <a href="./" class="nav-link">HostedApplication</a>
                             </li>
                             <li class="navitem">
-                                <a href="../cryptography/" class="nav-link">Cryptography</a>
+                                <a href="../application2/" class="nav-link">SelfhostedApplication</a>
                             </li>
                             <li class="navitem">
                                 <a href="../database/" class="nav-link">Database</a>
                             </li>
                             <li class="navitem">
-                                <a href="../networking/" class="nav-link">Network</a>
+                                <a href="../networking/" class="nav-link">Network/Server</a>
                             </li>
                             <li class="navitem">
-                                <a href="../discoveries.md" class="nav-link">Other</a>
+                                <a href="../cryptography/" class="nav-link">Cryptography</a>
                             </li>
                         </ul>
 
                     <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a rel="prev" href="../security/" class="nav-link">
+                                <a rel="prev" href=".." class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../cryptography/" class="nav-link">
+                                <a rel="next" href="../application2/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -94,10 +91,11 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#conclusion" class="nav-link">Conclusion</a>
-              <ul class="nav flex-column">
               </ul>
             </li>
+            
+            <li class="nav-item" data-level="1"><a href="#conclusion" class="nav-link">Conclusion</a>
+              <ul class="nav flex-column">
               </ul>
             </li>
             
@@ -121,37 +119,12 @@
             </li>
               </ul>
             </li>
-            
-            <li class="nav-item" data-level="1"><a href="#fang-services" class="nav-link">Fang Services</a>
-              <ul class="nav flex-column">
-            <li class="nav-item" data-level="2"><a href="#application-vulnerability-score_1" class="nav-link">Application Vulnerability Score</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#before-development-begins" class="nav-link">Before Development Begins</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#during-design" class="nav-link">During Design</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#during-development_1" class="nav-link">During Development</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            <li class="nav-item" data-level="2"><a href="#cybok-knowledge-applied" class="nav-link">CyBOK knowledge applied</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-              </ul>
-            </li>
         </ul>
     </div>
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p><a class="glightbox" href="../app.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Scanned Network" src="../app.png" /></a></p>
+<p><a class="glightbox" href="../pictures/edu.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Scanned Network" src="../pictures/edu.png" /></a></p>
 <h1 id="fang-education">Fang Education</h1>
 <h2 id="application-vulnerability-score">Application Vulnerability Score</h2>
 <table>
@@ -163,21 +136,24 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">During Built</td>
-<td style="text-align: left;"><p style='color:RED'>CRITICAL</p></td>
+<td style="text-align: left;">During Design</td>
+<td style="text-align: left;"><p style='color:green'>ZERO</p></td>
 </tr>
 <tr>
-<td style="text-align: left;">Before Design</td>
-<td style="text-align: left;"><p style='color:green'>ZERO</p></td>
+<td style="text-align: left;">During Built</td>
+<td style="text-align: left;"><p style='color:RED'>CRITICAL</p></td>
 </tr>
 <tr>
 <td style="text-align: left;">Launched</td>
 <td style="text-align: left;"><p style='color:orange'>MEDIUM</p></td>
 </tr>
+<tr>
+<td style="text-align: left;">Current State</td>
+<td style="text-align: left;"><p style='color:orange'>MEDIUM</p></td>
+</tr>
 </tbody>
 </table>
-<hr />
-<h2 id="conclusion">Conclusion</h2>
+<h1 id="conclusion">Conclusion</h1>
 <p>Streamlit does not offer CSP headers but has Cross-Origin Resource Sharing (CORS) hard coded into the stack. Bug Bounty programs identified that even setting the headers won't always protect against XSS and Clickjacking. 
 During Pentesting against XSS failed. There was no resources to test clickjacking except for inserting the application in an iframe, overlaying it with malicious code. Through social engineering the attacker will then be able to attack unsuspected users.</p>
 <p>The risk was reduce through input validation and output encoding.
@@ -206,7 +182,7 @@ In conclusion, I will not recommend using this stack for high-risk applications.
 </ul>
 </blockquote>
 <p>Removed all libraries and documents not being used by the application.
-<a class="glightbox" href="../image-43.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="OWASP5" src="../image-43.png" /></a></p>
+<a class="glightbox" href="../pictures/image-43.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="OWASP5" src="../pictures/image-43.png" /></a></p>
 <h3 id="vulnerability-scanner">Vulnerability Scanner</h3>
 <p><a href="https://app.snyk.io/">Snyk</a> was used to scan the code for vulnerabilities once the application was finished.</p>
 <p><a href="https://owasp.org/Top10/A06_2021-Vulnerable_and_Outdated_Components/">OWASP TOP 10 : A06:2021 – Vulnerable and Outdated Components</a></p>
@@ -226,7 +202,7 @@ All  it took was to update Streamlit from version ==1.23.0 to ==1.28.1 for <em>A
 <p>💪Do not wait until the end of the built before doing vulnerability testing. This applicatin was not feature rich, and fixing the vulnerabilities was easy. For my more complicated applications, a more robust process needs to be followed.</p>
 <h4 style='color:rgb(167, 22, 102)'> Scan Result Before Fix</h4>
 
-<p><a class="glightbox" href="../image-39.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="FangEDU_Snyk" src="../image-39.png" /></a></p>
+<p><a class="glightbox" href="../pictures/image-39.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="FangEDU_Snyk" src="../pictures/image-39.png" /></a></p>
 <table>
   <tr>
     <th>Number</th>
@@ -272,11 +248,11 @@ Affected versions of this package are vulnerable to Improper Output Neutralizati
 
 <h4 style='color:rgb(167, 22, 102)'> Scan Result After Fix</h4>
 
-<p><a class="glightbox" href="../image-41.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-41.png" /></a>
-<a class="glightbox" href="../image-40.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-40.png" /></a></p>
+<p><a class="glightbox" href="../pictures/image-41.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-41.png" /></a>
+<a class="glightbox" href="../pictures/image-40.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-40.png" /></a></p>
 <h2 id="during-deployment">During Deployment</h2>
 <p>💢 The application was launched on the Web Service <a href="https://render.com/">Render</a>. The application was not able to launch using the latest version of Streamlit. The latest version accepted by the hosting service is 1.23.1.</p>
-<p><a class="glightbox" href="../image-44.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-44.png" /></a></p>
+<p><a class="glightbox" href="../pictures/image-44.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-44.png" /></a></p>
 <p>When the application is launched using Render the vulnerability status changed from Null to Medium when scanned by <a href="https://hostedscan.com/">HostedScan</a>, using OWASP ZAP.</p>
 <p>The vulnerabilies are not the same as identified by Snyk. Two options for launching:</p>
 <ul>
@@ -285,7 +261,7 @@ Affected versions of this package are vulnerable to Improper Output Neutralizati
 </ul>
 <h4 style='color:rgb(167, 22, 102)'> Scan Result Before Fix</h4>
 
-<p><a class="glightbox" href="../image-45.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-45.png" /></a></p>
+<p><a class="glightbox" href="../pictures/image-45.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-45.png" /></a></p>
 <table>
   <tr>
     <th>Number</th>
@@ -366,15 +342,15 @@ The report can be viewed in the link below</td>
 </span></code></pre></div>
 <p><strong>Results</strong></p>
 <p><b style='color:red'> FAIL</b>
-<a class="glightbox" href="../image-56.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-56.png" /></a></p>
+<a class="glightbox" href="../pictures/image-56.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-56.png" /></a></p>
 <p><strong>Attack</strong></p>
 <p>Clickjacking basic test to see how site handles 'dangerous characters' input through  Burp Suite:</p>
-<p><a class="glightbox" href="../image-54.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-54.png" /></a></p>
+<p><a class="glightbox" href="../pictures/image-54.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-54.png" /></a></p>
 <p><strong>Results</strong></p>
 <p>Website response
-<a class="glightbox" href="../image-53.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-53.png" /></a></p>
+<a class="glightbox" href="../pictures/image-53.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-53.png" /></a></p>
 <p>Burp Suite header response 
-<a class="glightbox" href="../image-57.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-57.png" /></a></p>
+<a class="glightbox" href="../pictures/image-57.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-57.png" /></a></p>
 <p><strong>Attack</strong>
 Clickjacking file on live site hosted on Render.com:</p>
 <h4 style='color:rgb(167, 22, 102)'>L2: Testing</h4>
@@ -382,7 +358,7 @@ Clickjacking file on live site hosted on Render.com:</p>
 <p>When attempting a basic Reflective XSS <code>&lt;script&gt;alert()&lt;/script&gt;</code> no script got injected.</p>
 <h2 id="resolution">Resolution</h2>
 <p>Streamlit hardcoded "allowed-message-origin" into their stack. This refers to Cross-Origin Resource Sharing (CORS) security headers </p>
-<p><a class="glightbox" href="../image-55.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-55.png" /></a></p>
+<p><a class="glightbox" href="../pictures/image-55.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-55.png" /></a></p>
 <h4 style='color:rgb(167, 22, 102)'>L2: Solution</h4>
 <p>Reflective XSS: <a href="https://www.cobalt.io/blog/a-pentesters-guide-to-cross-site-scripting-xss">Remove</a> blacklisted characters '';! - "<XSS>=&amp;{()} scritp SCRIOT.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>      newname=&quot;&quot;
@@ -404,287 +380,13 @@ Clickjacking file on live site hosted on Render.com:</p>
 </span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>            else:
 </span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>                newnumber=newenumber+number
 </span></code></pre></div>
-<p><a class="glightbox" href="../image-50.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-50.png" /></a></p>
+<p><a class="glightbox" href="../pictures/image-50.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-50.png" /></a></p>
 <p>After Input has been sanitised</p>
-<p><a class="glightbox" href="../image-51.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-51.png" /></a><a class="glightbox" href="../image-52.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-52.png" /></a></p>
+<p><a class="glightbox" href="../pictures/image-51.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-51.png" /></a><a class="glightbox" href="../pictures/image-52.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-52.png" /></a></p>
 <hr />
-<h1 id="fang-services">Fang Services</h1>
-<h3 style="color:rgb(167, 22, 102)">Goal</h3>
-
-<p>The goal is to imporve my application security and reduce the risk of attacks by testing the application througout the Software Development Life Cycle set out by OWASP.
-This document is recording the 'the test early and test often' methodology applied threat modeling, automated testing (Snyk), code review and pentesting techniques.  </p>
-<h3 style="color:rgb(167, 22, 102)">The Journey</h3>
-
-<h2 id="application-vulnerability-score_1">Application Vulnerability Score</h2>
-<table>
-<thead>
-<tr>
-<th style="text-align: left;">PHASE</th>
-<th style="text-align: left;">Vulnerability Score</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align: left;">Before Development Begins</td>
-<td style="text-align: left;"><p style='color:RED'>CRITICAL</p></td>
-</tr>
-<tr>
-<td style="text-align: left;">During Design</td>
-<td style="text-align: left;"><p style='color:RED'>CRITICAL</p></td>
-</tr>
-<tr>
-<td style="text-align: left;">Before Launch</td>
-<td style="text-align: left;"><p style='color:green'>ZERO</p></td>
-</tr>
-<tr>
-<td style="text-align: left;">Launched</td>
-<td style="text-align: left;"><p style='color:orange'>MEDIUM</p></td>
-</tr>
-</tbody>
-</table>
-<h2 id="before-development-begins">Before Development Begins</h2>
-<p><strong> Lessons learnt </strong>
-💪 Application headers to prevent cross site scripting
-<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>@app.after_request
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>def add_security_headers(resp):
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    resp.headers[&#39;Content-Security-Policy&#39;] = &quot;default-src &#39;self&#39;&quot;
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    return resp
-</span></code></pre></div></p>
-<hr />
-<p>A threat model using Microsoft Thread Modeling Tool was created to identify the possible threats on a typical login form.
-The results identified an extensive list of threats that can be avoided during built and the basis of the metrics criteria.</p>
-<p><strong> Threat Model </strong></p>
-<p>The standard Login Threat Model based on original design
-<a class="glightbox" href="../image-9.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Login Threat Model" src="../image-9.png" /></a></p>
-<p><strong> Measurement and Metrics Criteria and Ensure Traceability </strong></p>
-<p>Denial Of Service</p>
-<ul class="task-list">
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Potential Excessive Resource Consumption for Web Application or check login credentials </p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Use Multi-Factor Authentication (MFA)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Limit Login Attempts <br><br>
-Other</li>
-<li>Credential Storage : Store user credentials securely using hashing and salting techniques <a href="../cryptography/">see cryptography</a><br></li>
-<li>Credential Verification : hash the provided password in the same way as the stored hash, and compare the two. If they match, the password is correct.<a href="../cryptography/">see cryptography</a><br></li>
-<li>Secure Transmission : Always transmit credentials securely using encryption protocols like HTTPS.<a href="../networking/">see network</a><br></li>
-<li>Use load balancing : Distribute traffic across multiple servers<a href="../networking/">see network</a><br></li>
-<li>Implement server-side caching : This can reduce the number of requests to the server<a href="../networking/">see network</a><br></li>
-<li>Monitor and log server activity : This can help detect and respond to unusual resource consumption<a href="../networking/">see network</a><br>
-<br></li>
-</ul>
-</li>
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Data Flow HTTPS Is Potentially Interrupted</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Implement a Web Application Firewall (WAF)<a href="../networking/">see network</a><br><br> </li>
-</ul>
-</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Potential Process Crash or Stop for Web Application <p style="color:rgb(167, 22, 102)"> outside of scope<p></li>
-</ul>
-<p><br>
-Elevation of Privilege</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Cross Site Request Forgery </li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Elevation by Changing the Execution Flow in Web Application </li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Web Application May be Subject to Elevation of Privilege Using Remote Code Execution </li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Elevation Using Impersonation</li>
-</ul>
-<p>Information Disclosure</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Weak Credential Storage</li>
-</ul>
-<p>Repudiation</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Potential Weak Protections for Audit Data </li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Insufficient Auditing </li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Lower Trusted Subject Updates Logs</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Data Logs from an Unknown Source </li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Potential Data Repudiation by Web Application</li>
-</ul>
-<p>Tampering</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Risks from Logging </li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Cross Site Scripting</li>
-</ul>
-<p>Spoofing</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing of Destination Data Store login</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing the Browser External Entity</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing of Destination Data Store SQL Database <a href="../database/">see database</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing of Source Data Store check login credentials <a href="../database/">see database</a></li>
-</ul>
-<p><strong> Authentication </strong>: Use standard authentication mechanisms to verify the identity of the source data store. This could involve using secure protocols such as HTTPS which provide built-in authentication.</p>
-<p><strong> Input Validation </strong>: Ensure that all inputs are validated and sanitized to prevent malicious inputs from being processed.</p>
-<p><strong> Least Privilege Access </strong>: Implement least privilege access controls so that even if an attacker is able to spoof a source, they would not have sufficient privileges to perform harmful actions</p>
-<p><strong> Monitoring and Logging</strong> : Regularly monitor and log activities to detect any unusual behavior or access patterns</p>
-<h2 id="during-design">During Design</h2>
-<p><strong><em>Security Requirements</em></strong></p>
-<ul>
-<li>User management</li>
-<li>Authentication</li>
-<li>Authorization</li>
-<li>Data confidentiality</li>
-<li>Integrity</li>
-<li>Accountability</li>
-<li>Session management</li>
-<li>Transport security</li>
-<li>Tiered system segregation </li>
-</ul>
-<p><strong> Step 1 : Basic Login and possible vulnerabilities </strong></p>
-<p>Is started out with a standard login page and listed the common vulnerabilities.</p>
-<p><a class="glightbox" href="../image-17.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Step1" src="../image-17.png" /></a></p>
-<p><strong> Step 2 : Improved vulnerabilities through design </strong></p>
-<p>Redesigned the login page to remove design vulnerabilities:</p>
-<p><a class="glightbox" href="../image-29.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-29.png" /></a>
-<a class="glightbox" href="../image-30.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-30.png" /></a> 
-<a class="glightbox" href="../image-31.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-31.png" /></a> 
-<a class="glightbox" href="../image-33.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-33.png" /></a>
-<a class="glightbox" href="../image-34.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-34.png" /></a>
-<a class="glightbox" href="../image-36.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-36.png" /></a></p>
-<p>Logging returning after user has completed the verification
-<a class="glightbox" href="../image-37.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-37.png" /></a> </p>
-<h2 id="during-development_1">During Development</h2>
-<p>💢 <strong> The line between security and convenience </strong></p>
-<p>The first hurdle is to reduce the risks wihtout building an annoying user experience.</p>
-<p>During the development phase the design concept was combined with the practical aproach with questions like:</p>
-<ul>
-<li>Remove the risk of a weak password with a unique passphrase (token) emailed to user,</li>
-<li>Enforce One Time Passcode,</li>
-<li>Implement captcha,</li>
-<li>all of the above</li>
-</ul>
-<p><br></p>
-<p><a class="glightbox" href="../image-38.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-38.png" /></a></p>
-<p>Secure: Flask provides built-in support for handling common web security features like cross-site request forgery (CSRF) protection and secure cookie handling.</p>
 <p><strong><em>References</em></strong></p>
 <p><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/03-Identity_Management_Testing/README">Testing for Account Enumeration and Guessable User Account</a></p>
-<p><a href="https://www.strongdm.com/blog/authentication-vulnerabilities">11 Common Authentication Vulnerabilities You Need to Know</a></p>
-<hr />
-<hr />
-<h2 id="cybok-knowledge-applied">CyBOK knowledge applied</h2>
-<ul>
-<li>
-<p><strong>categories of vulnerabilities</strong></p>
-<ul>
-<li><strong>CVEs and CWEs</strong></li>
-<li>
-<p><strong>memory management vulnerabilities</strong></p>
-<p>attacks</p>
-<p>code corruption attacks</p>
-<p>control-flow hijack attacks</p>
-<p>information leak attack</p>
-<p>data-only-attacks</p>
-<p>safe languages</p>
-<p>temporal vulnerabilities</p>
-<p>spatial vulnerabilities</p>
-</li>
-<li>
-<p>structured output generation vulnerabilities</p>
-<p>SQL injection</p>
-<p>command injection vulnerabilities</p>
-<p>script injection vulnerabilities (XSS)</p>
-<p>stored injection vulnerabilites</p>
-<p>higher-order injection vulnerabilities</p>
-</li>
-<li>
-<p><strong>race condition vulnerabilities</strong></p>
-<p>concurrency bugs</p>
-<p>time-of-check to time-of-use</p>
-</li>
-<li>
-<p><strong>API vulnerabilities</strong></p>
-<p>correct use</p>
-<p>correct implementation</p>
-</li>
-<li>
-<p><strong>side-channel vulnerabilities</strong></p>
-<p>software-based side-channels</p>
-<p>covert channels</p>
-<p>micro-architectual effects</p>
-<p>fault-injection attacks</p>
-<p>physical fault-injection</p>
-<p>software fault-injection</p>
-<p>Rowhammer</p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>prevention of vulnerabilities</strong></p>
-<ul>
-<li>
-<p><strong>API design</strong></p>
-<p>defensive programming</p>
-<p>sandboxing</p>
-<p>principle of least privilege</p>
-<p>assertions</p>
-<p>contracts</p>
-</li>
-<li>
-<p><strong>coding practices</strong></p>
-<p>coding guidelines</p>
-<p>MISRA</p>
-<p>dangerous functions</p>
-<p>programming idioms</p>
-<p>resource acquisition is initialisation</p>
-<p>move semantics</p>
-<p>smart pointers</p>
-<p>checking compliance</p>
-</li>
-<li>
-<p><strong>erroneous execution</strong></p>
-<p>trapped errors</p>
-<p>untrapped errors</p>
-</li>
-<li>
-<p><strong>language design and type systems</strong></p>
-<p>memory management mitigations</p>
-<p>immutable state</p>
-<p>dynamic checks</p>
-<p>static checks</p>
-</li>
-<li>
-<p><strong>structured output generations mitigations</strong></p>
-<p>type systems</p>
-<p>query generation</p>
-</li>
-<li>
-<p><strong>race condition mitigation</strong></p>
-<p>ownership</p>
-<p>aliasing</p>
-</li>
-<li>
-<p><strong>information flow</strong></p>
-</li>
-<li><strong>mitigating exploitation</strong></li>
-<li>
-<p><strong>runtime detection of attacks</strong></p>
-<p>stack canaries
-non-executable memory</p>
-<p>control fow integrity</p>
-</li>
-<li>
-<p><strong>automated software diversity</strong></p>
-<p>ASLR</p>
-</li>
-<li>
-<p><strong>limiting privileges</strong></p>
-<ul>
-<li>
-<p><strong>sandboxing</strong></p>
-<p>monitors</p>
-<p>jails</p>
-</li>
-</ul>
-<p>compartmentalisation</p>
-<p>object-capability systems</p>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>detection of vulnerabilities</strong></p>
-</li>
-</ul></div>
+<p><a href="https://www.strongdm.com/blog/authentication-vulnerabilities">11 Common Authentication Vulnerabilities You Need to Know</a></p></div>
             </div>
         </div>
 
