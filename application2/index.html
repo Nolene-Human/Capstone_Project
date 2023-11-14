@@ -108,10 +108,6 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#during-built" class="nav-link">During Built</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
             <li class="nav-item" data-level="2"><a href="#during-deployment" class="nav-link">During Deployment</a>
               <ul class="nav flex-column">
               </ul>
@@ -263,13 +259,38 @@ Elevation of Privilege</p>
 <p>Logging returning after user has completed the verification
 <a class="glightbox" href="../pictures/image-37.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-37.png" /></a> </p>
 <h2 id="during-development">During Development</h2>
-<p><strong> Lessons learnt </strong></p>
-<p>💪 Application headers to prevent cross site scripting
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Code review</th>
+<th style="text-align: left;">Vulnerability Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Landing Page</td>
+<td style="text-align: left;"><p style='color:green'>ZERO</p></td>
+</tr>
+<tr>
+<td style="text-align: left;">Verification Page</td>
+<td style="text-align: left;"><p style='color:green'>ZERO</p></td>
+</tr>
+</tbody>
+</table>
+<p><u>a) Landing Page Only</u></p>
+<p><a class="glightbox" href="../pictures/image2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image2.png" /></a> </p>
+<p><a class="glightbox" href="../pictures/image4.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image4.png" /></a></p>
+<p><u>b) Login UI </u></p>
+<p><a class="glightbox" href="../pictures/image6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image6.png" /></a></p>
+<p><a class="glightbox" href="../pictures/image5.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image5.png" /></a></p>
+<p><strong> Lessons learnt </strong>
+<br>
+💪 Application headers to prevent cross site scripting</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>@app.after_request
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>def add_security_headers(resp):
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    resp.headers[&#39;Content-Security-Policy&#39;] = &quot;default-src &#39;self&#39;&quot;
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    return resp
-</span></code></pre></div></p>
+</span></code></pre></div>
 <p>💢 <strong> The line between security and convenience </strong></p>
 <p>The first hurdle is to reduce the risks wihtout building an annoying user experience.</p>
 <p>During the development phase the design concept was combined with the practical aproach with questions like:</p>
@@ -282,7 +303,6 @@ Elevation of Privilege</p>
 <p><br></p>
 <p><a class="glightbox" href="../pictures/image-38.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-38.png" /></a></p>
 <p>Secure: Flask provides built-in support for handling common web security features like cross-site request forgery (CSRF) protection and secure cookie handling.</p>
-<h2 id="during-built">During Built</h2>
 <h2 id="during-deployment">During Deployment</h2>
 <h4>Launcing a basic landing page</h4>
 

@@ -96,11 +96,6 @@
             
             <li class="nav-item" data-level="1"><a href="#conclusion" class="nav-link">Conclusion</a>
               <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#pentesting" class="nav-link">Pentesting</a>
-              <ul class="nav flex-column">
             <li class="nav-item" data-level="2"><a href="#during-development" class="nav-link">During Development</a>
               <ul class="nav flex-column">
               </ul>
@@ -109,11 +104,11 @@
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#pentesting_1" class="nav-link">Pentesting</a>
+            <li class="nav-item" data-level="2"><a href="#pentesting" class="nav-link">Pentesting</a>
               <ul class="nav flex-column">
               </ul>
             </li>
-            <li class="nav-item" data-level="2"><a href="#resolution" class="nav-link">Resolution</a>
+            <li class="nav-item" data-level="2"><a href="#solutions" class="nav-link">Solutions</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -159,7 +154,8 @@ During Pentesting against XSS failed. There was no resources to test clickjackin
 <p>The risk was reduce through input validation and output encoding.
 In conclusion, I will not recommend using this stack for high-risk applications. </p>
 <hr />
-<h1 id="pentesting">Pentesting</h1>
+<h1 style='color:rgb(167, 22, 102)'> Pentesting </h1>
+
 <p>Fang Education is a non-technical cyberscurity educational web application tool. </p>
 <p>Funtions include:<br>
 - What is Fang<br>
@@ -285,7 +281,7 @@ Affected versions of this package are vulnerable to Improper Output Neutralizati
 </tr>
 </table>
 <p><br></p>
-<h2 id="pentesting_1">Pentesting</h2>
+<h2 id="pentesting">Pentesting</h2>
 <p style='color:red'> 🚨 Streamlit, as at the date of launch do not allow setting http headers to mitigate threat! </p>
 <p><a href="https://discuss.streamlit.io/t/no-csp-header-in-the-http-response/36537">Streamlit : CSP</a><br></p>
 <p>HTTP headers are set to provide an additional layer of defence against attacks. However, in some instances, an application would not want to set these headers, as, for example, an application might allow inframe embedding (prevented by the x-frame header option).</p>
@@ -308,16 +304,19 @@ Setting strict transport security headers prevents man-in-the-middle attacks. Fo
 <tr>
     <td>L1</td>
     <td>Missing Anti-clickjacking Header</td>
-    <td>Streamlit does not support CSP or any other Header methods to prevent clickjacking attacks.</td>
-    <td></td>
+    <td>- Preventing the browser from loading the page in frame using the X-Frame-Options or Content Security Policy (frame-ancestors) HTTP headers.
+- Preventing session cookies from being included when the page is loaded in a frame using the SameSite cookie attribute.
+- Implementing JavaScript code in the page to attempt to prevent it being loaded in a frame (known as a "frame-buster").
+</td>
+    <td>Burb Suite Clickbandit revealed every possible click on the website is subject to clickjacking.
+The report can be viewed in the link below</td>
 </tr>
 <tr>
     <td>L2</td>
     <td> Content Security Policy (CSP) Header Not Set</td>
     <td> There are two way to set content security policies.
     a) HTML meta tag and HTTP response header. This application is not using HTML</td>
-    <td> Burb Suite Clickbandit revealed every possible click on the website is subject to clickjacking.
-The report can be viewed in the link below</td>
+    <td> ```<script>alert(hacked!)</script>```</td>
 
 
 </tr>
@@ -353,13 +352,16 @@ The report can be viewed in the link below</td>
 <a class="glightbox" href="../pictures/image-57.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-57.png" /></a></p>
 <p><strong>Attack</strong>
 Clickjacking file on live site hosted on Render.com:</p>
-<h4 style='color:rgb(167, 22, 102)'>L2: Testing</h4>
+<h4 style='color:rgb(167, 22, 102)'>L2| Content Security Policy (CSP) Header Not Set (XSS) :Testing</h4>
 
 <p>When attempting a basic Reflective XSS <code>&lt;script&gt;alert()&lt;/script&gt;</code> no script got injected.</p>
-<h2 id="resolution">Resolution</h2>
-<p>Streamlit hardcoded "allowed-message-origin" into their stack. This refers to Cross-Origin Resource Sharing (CORS) security headers </p>
-<p><a class="glightbox" href="../pictures/image-55.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-55.png" /></a></p>
-<h4 style='color:rgb(167, 22, 102)'>L2: Solution</h4>
+<h2 id="solutions">Solutions</h2>
+<h4 style='color:rgb(167, 22, 102)'>L1 | Clickjacking: Solution</h4>
+
+<p style="colour:red">No Solution could be found for protecting this site from Clickjacking</p>
+
+<h4 style='color:rgb(167, 22, 102)'>L2| Content Security Policy (CSP) Header Not Set (XSS): Solution</h4>
+
 <p>Reflective XSS: <a href="https://www.cobalt.io/blog/a-pentesters-guide-to-cross-site-scripting-xss">Remove</a> blacklisted characters '';! - "<XSS>=&amp;{()} scritp SCRIOT.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>      newname=&quot;&quot;
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>      newnumber=&quot;&quot;
