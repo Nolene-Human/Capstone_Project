@@ -91,11 +91,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#conclusion" class="nav-link">Conclusion</a>
+              <ul class="nav flex-column">
               </ul>
             </li>
-            
-            <li class="nav-item" data-level="1"><a href="#conclusion" class="nav-link">Conclusion</a>
-              <ul class="nav flex-column">
             <li class="nav-item" data-level="2"><a href="#during-development" class="nav-link">During Development</a>
               <ul class="nav flex-column">
               </ul>
@@ -121,6 +120,9 @@
 
 <p><a class="glightbox" href="../pictures/edu.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Scanned Network" src="../pictures/edu.png" /></a></p>
 <h1 id="fang-education">Fang Education</h1>
+<h3 style="color:rgb(167, 22, 102)">Goal</h3>
+
+<p>This application was deployed without any vulnerability testing and or analysis, which is a common practice. With the increase in deployment, there has been a corresponding rise in the vulnerabilities associated with these applications. This paper aims to provide a comprehensive analysis of the vulnerabilities, exploring their nature, potential impact, and the preventative measures that can be employed to mitigate them. Furthermore, we will draw conclusions based on our findings, providing valuable insights for developers and stakeholders in the field. This study not only contributes to the existing body of literature but also provides practical recommendations for enhancing the security of deployed applications.</p>
 <h2 id="application-vulnerability-score">Application Vulnerability Score</h2>
 <table>
 <thead>
@@ -148,7 +150,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="conclusion">Conclusion</h1>
+<h2 id="conclusion">Conclusion</h2>
 <p>Streamlit does not offer CSP headers but has Cross-Origin Resource Sharing (CORS) hard coded into the stack. Bug Bounty programs identified that even setting the headers won't always protect against XSS and Clickjacking. 
 During Pentesting against XSS failed. There was no resources to test clickjacking except for inserting the application in an iframe, overlaying it with malicious code. Through social engineering the attacker will then be able to attack unsuspected users.</p>
 <p>The risk was reduce through input validation and output encoding.
@@ -244,8 +246,7 @@ Affected versions of this package are vulnerable to Improper Output Neutralizati
 
 <h4 style='color:rgb(167, 22, 102)'> Scan Result After Fix</h4>
 
-<p><a class="glightbox" href="../pictures/image-41.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-41.png" /></a>
-<a class="glightbox" href="../pictures/image-40.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-40.png" /></a></p>
+<p><a class="glightbox" href="../pictures/image-41.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-41.png" /></a></p>
 <h2 id="during-deployment">During Deployment</h2>
 <p>💢 The application was launched on the Web Service <a href="https://render.com/">Render</a>. The application was not able to launch using the latest version of Streamlit. The latest version accepted by the hosting service is 1.23.1.</p>
 <p><a class="glightbox" href="../pictures/image-44.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-44.png" /></a></p>
@@ -255,15 +256,17 @@ Affected versions of this package are vulnerable to Improper Output Neutralizati
 <li>Accept the risk identified by Snyk however not an issue at launch and fixed new vulnerabilities or,</li>
 <li>Find another hosting service that will launch with the latest Streamlit version </li>
 </ul>
-<h4 style='color:rgb(167, 22, 102)'> Scan Result Before Fix</h4>
+<h4 style='color:rgb(167, 22, 102)'> Scan Result</h4>
 
+<p><strong> Please note due to the time constraints only vulnerabilities higher then Medium were investigated </strong></p>
 <p><a class="glightbox" href="../pictures/image-45.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-45.png" /></a></p>
 <table>
   <tr>
-    <th>Number</th>
+    <th>#</th>
     <th>Threat</th>
     <th>Vulnerability</th>
     <th>Description</th>
+    <th>Potential impact</th>
   </tr>
 
 <tr>
@@ -271,6 +274,7 @@ Affected versions of this package are vulnerable to Improper Output Neutralizati
     <td style='color:orange'>Medium</td>
     <td>Missing Anti-clickjacking Header</td>
     <td>the response does not include either Content-Security-Policy with 'frame-ancestors' directive or X-Frame-Options to protect against 'ClickJacking' attacks.</td>
+    <td>Exploits unsuspecting actions of users</td>
 </tr>
 
 <tr>
@@ -278,7 +282,9 @@ Affected versions of this package are vulnerable to Improper Output Neutralizati
     <td style='color:orange'>Medium</td>
     <td> Content Security Policy (CSP) Header Not Set</td>
     <td>Content Security Policy (CSP) is an added layer of security that helps to detect and mitigate certain types of attacks, including Cross Site Scripting (XSS) and data injection attacks. These attacks are used for everything from data theft to site defacement or distribution of malware. CSP provides a set of standard HTTP headers that allow website owners to declare approved sources of content that browsers should be allowed to load on that page — covered types are JavaScript, CSS, HTML frames, fonts, images and embeddable objects such as Java applets, ActiveX, audio and video files.</td>
+    <td>Unauthorised access, Data theft, Spreading Malware</td>
 </tr>
+
 </table>
 <p><br></p>
 <h2 id="pentesting">Pentesting</h2>
@@ -316,7 +322,7 @@ The report can be viewed in the link below</td>
     <td> Content Security Policy (CSP) Header Not Set</td>
     <td> There are two way to set content security policies.
     a) HTML meta tag and HTTP response header. This application is not using HTML</td>
-    <td> ```<script>alert(hacked!)</script>```</td>
+    <td> script : alert(hacked!)script </td>
 
 
 </tr>
@@ -328,33 +334,48 @@ The report can be viewed in the link below</td>
 <p><a href="../clickjacked.html">Clickjacking Report</a></p>
 <p>Further attempt to see if an <code>&lt;iframe&gt;</code> can be inserted I ran an attack using a basic test to see how the site handles dangerous characters, using Burb Suit.</p>
 <p><strong>Attack</strong></p>
-<p>Clickjacking file on local instance:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&lt;!DOCTYPE html&gt;&lt;html&gt;
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>&lt;head&gt;
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>&lt;title&gt;Clickjacking Test&lt;/title&gt;
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>&lt;/head&gt;
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>&lt;body&gt; 
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>&lt;iframe src=&quot;http://127.0.0.1:5000/&quot;&gt;
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>&lt;/iframe&gt;
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>&lt;/body&gt;
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>&lt;/html&gt;
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&lt;style&gt;
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>    iframe{
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>        position:relative;
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>        width:1800px;
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>        height: 1000px;
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    }
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>    button{
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>        color: red;
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>        position:absolute;
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>        top:560px;
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>        left:575px;
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>        height: 40px;
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>    }
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>&lt;/style&gt;
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>&lt;div&gt;
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>    &lt;iframe id=&quot;hackframe&quot;
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>        src=&quot;http://fang.onrender.com&quot;&gt;
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>    &lt;/iframe&gt;
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>&lt;/div&gt;
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>&lt;button id =&#39;falseclick&#39; onclick=&quot;alert(&#39;Do you always just click on buttons without checking if it is secure!&#39;)&quot;&gt;
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>    contact us
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>&lt;/button&gt;
 </span></code></pre></div>
 <p><strong>Results</strong></p>
-<p><b style='color:red'> FAIL</b>
-<a class="glightbox" href="../pictures/image-56.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-56.png" /></a></p>
+<p><b style='color:red'> FAIL</b></p>
+<p><a class="glightbox" href="../image-2.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-2.png" /></a></p>
+<h4 style='color:rgb(167, 22, 102)'>L2| Content Security Policy (CSP) Header Not Set (XSS) :Testing</h4>
+
+<p>When attempting a basic Reflective XSS <code>&lt;script&gt;alert()&lt;/script&gt;</code> no script got injected.</p>
 <p><strong>Attack</strong></p>
-<p>Clickjacking basic test to see how site handles 'dangerous characters' input through  Burp Suite:</p>
+<p>Cross-Site-Scripting (XSS) basic test to see how site handles 'dangerous characters' input through  Burp Suite:</p>
 <p><a class="glightbox" href="../pictures/image-54.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-54.png" /></a></p>
 <p><strong>Results</strong></p>
 <p>Website response
 <a class="glightbox" href="../pictures/image-53.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-53.png" /></a></p>
 <p>Burp Suite header response 
 <a class="glightbox" href="../pictures/image-57.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-57.png" /></a></p>
-<p><strong>Attack</strong>
-Clickjacking file on live site hosted on Render.com:</p>
-<h4 style='color:rgb(167, 22, 102)'>L2| Content Security Policy (CSP) Header Not Set (XSS) :Testing</h4>
-
-<p>When attempting a basic Reflective XSS <code>&lt;script&gt;alert()&lt;/script&gt;</code> no script got injected.</p>
 <h2 id="solutions">Solutions</h2>
 <h4 style='color:rgb(167, 22, 102)'>L1 | Clickjacking: Solution</h4>
 

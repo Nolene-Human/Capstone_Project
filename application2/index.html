@@ -91,11 +91,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#conclusion" class="nav-link">Conclusion</a>
+              <ul class="nav flex-column">
               </ul>
             </li>
-            
-            <li class="nav-item" data-level="1"><a href="#pentesting" class="nav-link">Pentesting</a>
-              <ul class="nav flex-column">
             <li class="nav-item" data-level="2"><a href="#before-development-begins" class="nav-link">Before Development Begins</a>
               <ul class="nav flex-column">
               </ul>
@@ -112,6 +111,10 @@
               <ul class="nav flex-column">
               </ul>
             </li>
+            <li class="nav-item" data-level="2"><a href="#pentesting" class="nav-link">Pentesting</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
               </ul>
             </li>
         </ul>
@@ -123,7 +126,7 @@
 <h1 id="fang-services">Fang Services</h1>
 <h3 style="color:rgb(167, 22, 102)">Goal</h3>
 
-<p>This document outlines the applied ‘test early and test often’ methodology to enhance the security of the application and mitigate the risk of attacks. Following the Software Development Life Cycle (SDLC) model proposed by the Open Web Application Security Project (OWASP) , which consists of seven phases: definition, design, development, testing, deployment, maintenance, and retirement. In each phase, this project performed various security activities, such as threat modeling, automated testing (using Snyk), code review, and pentesting techniques, to identify and address any vulnerabilities or weaknesses in the application. </p>
+<p>This section outlines the applied ‘test early and test often’ methodology to enhance the security of the application and mitigate the risk of attacks. Following the 4 out of 7 the Software Development Life Cycle (SDLC) model proposed by the Open Web Application Security Project (OWASP) , which consists of seven phases: definition, design, development, testing, deployment, maintenance, and retirement. In each phase, this project performed various security activities, such as threat modeling, automated testing (using Snyk), code review, and pentesting techniques, to identify and address any vulnerabilities or weaknesses in the application. </p>
 <h2 id="application-vulnerability-score">Application Vulnerability Score</h2>
 <table>
 <thead>
@@ -151,12 +154,17 @@
 </tr>
 </tbody>
 </table>
-<h1 id="pentesting">Pentesting</h1>
+<h2 id="conclusion">Conclusion</h2>
+<hr />
+<h1 style='color:rgb(167, 22, 102)'> Pentesting </h1>
+
 <p>Fang Service is an application that will follow the Penetration Testing Execution Standards providing cybersecurity services for Small Office Home Office (SOHO). </p>
-<p>MVP:<br>
-- Verification<br>
-- Login<br>
-- Network Scanning Tool<br></p>
+<p>MVP:<br></p>
+<ul>
+<li>Verification<br></li>
+<li>Login<br></li>
+<li>Network Scanning Tool<br></li>
+</ul>
 <p>This application is built using:</p>
 <ul>
 <li>Python, <br></li>
@@ -170,63 +178,67 @@ The results identified an extensive list of threats that can be avoided during b
 <p><strong> Threat Model </strong></p>
 <p>The standard Login Threat Model based on original design
 <a class="glightbox" href="../pictures/image-9.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Login Threat Model" src="../pictures/image-9.png" /></a></p>
-<p><strong> Measurement and Metrics Criteria and Ensure Traceability </strong></p>
-<p>Denial Of Service</p>
-<ul class="task-list">
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Potential Excessive Resource Consumption for Web Application or check login credentials </p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Use Multi-Factor Authentication (MFA)</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Limit Login Attempts <br><br>
-Other</li>
-<li>Credential Storage : Store user credentials securely using hashing and salting techniques <a href="../database/">see database</a><br></li>
-<li>Credential Verification : hash the provided password in the same way as the stored hash, and compare the two. If they match, the password is correct.<a href="../cryptography/">see cryptography</a><br></li>
-<li>Secure Transmission : Always transmit credentials securely using encryption protocols like HTTPS.<a href="../networking/">see network</a><br></li>
-<li>Use load balancing : Distribute traffic across multiple servers<a href="../networking/">see network</a><br></li>
-<li>Implement server-side caching : This can reduce the number of requests to the server<a href="../networking/">see network</a><br></li>
-<li>Monitor and log server activity : This can help detect and respond to unusual resource consumption<a href="../networking/">see network</a><br>
+<h3 style="color:rgb(167, 22, 102)">Measurement and Metrics Criteria and Ensure Traceability</h3>
+
+<p><strong> Denial Of Service</strong> </p>
+<ul>
+<li>Potential Excessive Resource Consumption for Web Application or check login credentials <ul>
+<li>Use Multi-Factor Authentication (MFA)</li>
+<li>Limit Login Attempts <br><br></li>
+</ul>
+</li>
+<li>
+<p>Other</p>
+<ul>
+<li>Credential Storage : Store user credentials securely using hashing and salting techniques. <a href="../database/">see database</a><br></li>
+<li>Credential Verification : hash the provided password in the same way as the stored hash, and compare the two. If they match, the password is correct. <a href="../cryptography/">see cryptography</a><br></li>
+<li>Secure Transmission : Always transmit credentials securely using encryption protocols like HTTPS. <a href="../networking/">see network</a><br></li>
+<li>Use load balancing : Distribute traffic across multiple servers <a href="../networking/">see network</a><br></li>
+<li>Implement server-side caching : This can reduce the number of requests to the server <a href="../networking/">see network</a><br></li>
+<li>Monitor and log server activity : This can help detect and respond to unusual resource consumption <a href="../networking/">see network</a><br>
 <br></li>
 </ul>
 </li>
-<li class="task-list-item">
-<p><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Data Flow HTTPS Is Potentially Interrupted</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Implement a Web Application Firewall (WAF)<a href="../networking/">see network</a><br><br> </li>
+<li>
+<p>Data Flow HTTPS Is Potentially Interrupted</p>
+<ul>
+<li>Implement a Web Application Firewall (WAF)<a href="../networking/">see network</a><br><br> </li>
 </ul>
 </li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Potential Process Crash or Stop for Web Application <p style="color:rgb(167, 22, 102)"> outside of scope<p></li>
+<li>
+<p>Potential Process Crash or Stop for Web Application <h6 style="color:rgb(167, 22, 102)"> outside of scope</h6></p>
+</li>
 </ul>
-<p><br>
-Elevation of Privilege</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Cross Site Request Forgery </li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Elevation by Changing the Execution Flow in Web Application </li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Web Application May be Subject to Elevation of Privilege Using Remote Code Execution </li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Elevation Using Impersonation</li>
+<p><strong> Elevation of Privilege </strong></p>
+<ul>
+<li>Cross Site Request Forgery </li>
+<li>Elevation by Changing the Execution Flow in Web Application </li>
+<li>Web Application May be Subject to Elevation of Privilege Using Remote Code Execution </li>
+<li>Elevation Using Impersonation</li>
 </ul>
-<p>Information Disclosure</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Weak Credential Storage</li>
+<p><strong> Information Disclosure</strong></p>
+<ul>
+<li>Weak Credential Storage <a href="../database/">see database</a></li>
 </ul>
-<p>Repudiation</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Potential Weak Protections for Audit Data </li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Insufficient Auditing </li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Lower Trusted Subject Updates Logs</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Data Logs from an Unknown Source </li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Potential Data Repudiation by Web Application</li>
+<p><strong> Repudiation </strong></p>
+<ul>
+<li>Potential Weak Protections for Audit Data </li>
+<li>Insufficient Auditing </li>
+<li>Lower Trusted Subject Updates Logs</li>
+<li>Data Logs from an Unknown Source </li>
+<li>Potential Data Repudiation by Web Application</li>
 </ul>
-<p>Tampering</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Risks from Logging </li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Cross Site Scripting</li>
+<p><strong> Tampering </strong></p>
+<ul>
+<li>Risks from Logging </li>
+<li>Cross Site Scripting</li>
 </ul>
-<p>Spoofing</p>
-<ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing of Destination Data Store login</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing the Browser External Entity</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing of Destination Data Store SQL Database <a href="../database/">see database</a></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Spoofing of Source Data Store check login credentials <a href="../database/">see database</a></li>
+<p><strong> Spoofing </strong></p>
+<ul>
+<li>Spoofing of Destination Data Store login</li>
+<li>Spoofing the Browser External Entity</li>
+<li>Spoofing of Destination Data Store SQL Database <a href="../database/">see database</a></li>
+<li>Spoofing of Source Data Store check login credentials <a href="../database/">see database</a></li>
 </ul>
 <p><strong> Authentication </strong>: Use standard authentication mechanisms to verify the identity of the source data store. This could involve using secure protocols such as HTTPS which provide built-in authentication.</p>
 <p><strong> Input Validation </strong>: Ensure that all inputs are validated and sanitized to prevent malicious inputs from being processed.</p>
@@ -247,10 +259,10 @@ Elevation of Privilege</p>
 </ul>
 <p><strong> Step 1 : Basic Login and possible vulnerabilities </strong></p>
 <p>Is started out with a standard login page and listed the common vulnerabilities.</p>
-<p><a class="glightbox" href="../pictures/image-17.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Step1" src="../pictures/image-17.png" /></a></p>
+<p><a class="glightbox" href="../pictures/image7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image7.png" /></a></p>
 <p><strong> Step 2 : Improved vulnerabilities through design </strong></p>
 <p>Redesigned the login page to remove design vulnerabilities:</p>
-<p><a class="glightbox" href="../pictures/image-29.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-29.png" /></a>
+<p><a class="glightbox" href="../pictures/image17.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Step1" src="../pictures/image17.png" /></a>
 <a class="glightbox" href="../pictures/image-30.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-30.png" /></a> 
 <a class="glightbox" href="../pictures/image-31.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-31.png" /></a> 
 <a class="glightbox" href="../pictures/image-33.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-33.png" /></a>
@@ -272,7 +284,7 @@ Elevation of Privilege</p>
 <td style="text-align: left;"><p style='color:green'>ZERO</p></td>
 </tr>
 <tr>
-<td style="text-align: left;">Verification Page</td>
+<td style="text-align: left;">Login UI/UX</td>
 <td style="text-align: left;"><p style='color:green'>ZERO</p></td>
 </tr>
 </tbody>
@@ -291,6 +303,8 @@ Elevation of Privilege</p>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    resp.headers[&#39;Content-Security-Policy&#39;] = &quot;default-src &#39;self&#39;&quot;
 </span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    return resp
 </span></code></pre></div>
+<p>or on Server</p>
+<hr />
 <p>💢 <strong> The line between security and convenience </strong></p>
 <p>The first hurdle is to reduce the risks wihtout building an annoying user experience.</p>
 <p>During the development phase the design concept was combined with the practical aproach with questions like:</p>
@@ -301,12 +315,61 @@ Elevation of Privilege</p>
 <li>all of the above</li>
 </ul>
 <p><br></p>
-<p><a class="glightbox" href="../pictures/image-38.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image-38.png" /></a></p>
-<p>Secure: Flask provides built-in support for handling common web security features like cross-site request forgery (CSRF) protection and secure cookie handling.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong> Results Before headers </strong></th>
+<th style="text-align: left;"><strong> Results After headers </strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a class="glightbox" href="../image.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image.png" /></a></td>
+<td style="text-align: left;"><a class="glightbox" href="../image-7.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-7.png" /></a></td>
+</tr>
+</tbody>
+</table>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>@app.after_request
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>def security_headers(resp):
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    resp.headers[&#39;Strict-Transport-Security&#39;]=&#39;mas-age=31536000&#39;
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>    resp.headers[&#39;Content-Security-Policy&#39;]=&#39;default-src &quot;self&quot;&#39;
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    resp.headers[&#39;X-Content-Type-Option&#39;]=&#39;nonsniff&#39;
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    resp.headers[&#39;X-Frame-Options&#39;]=&#39;SAMEORIGIN&#39;
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    return resp
+</span></code></pre></div>
 <h2 id="during-deployment">During Deployment</h2>
-<h4>Launcing a basic landing page</h4>
-
-<p><a class="glightbox" href="../pictures/image1.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../pictures/image1.png" /></a></p></div>
+<h2 id="pentesting">Pentesting</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong> Results Before headers </strong></th>
+<th style="text-align: left;"><strong> Results After headers </strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Content Security Policy Header</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong> Results Before headers </strong></th>
+<th style="text-align: left;"><strong> Results After headers </strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Missing Anti-Clickjacking Header</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>|<a class="glightbox" href="../image-3.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-3.png" /></a>|<a class="glightbox" href="../image-6.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-6.png" /></a></p>
+<p>Cause and effect</p>
+<p><a class="glightbox" href="../image-8.png" data-type="image" data-width="100%" data-height="auto" data-desc-position="bottom"><img alt="Alt text" src="../image-8.png" /></a></p></div>
             </div>
         </div>
 
